@@ -1,0 +1,6 @@
+[
+  "changes/5646.security",
+  "nautobot/core/templates/generic/object_list.html",
+  "nautobot/core/tests/test_views.py",
+  "nautobot/project-static/js/forms.js"
+]

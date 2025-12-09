@@ -1,0 +1,5 @@
+[
+  "changes/5647.security",
+  "nautobot/core/templates/generic/object_list.html",
+  "nautobot/core/tests/test_views.py"
+]

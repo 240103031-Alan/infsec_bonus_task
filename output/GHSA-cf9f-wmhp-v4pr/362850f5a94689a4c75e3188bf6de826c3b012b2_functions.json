@@ -1,0 +1,15 @@
+[
+  "def render_description(self, record):",
+  "class ConfigContextTestCase(",
+  "def test_view_object_with_custom_link(self):",
+  "class DynamicGroupTestCase(",
+  "class ObjectChangeTestCase(TestCase):",
+  "def header(self):",
+  "class BooleanColumn(tables.Column):",
+  "def render(self, value):",
+  "class ColoredLabelColumn(tables.TemplateColumn):",
+  "def render(self, record, bound_column, value):  # pylint: disable=arguments-differ",
+  "class RelationshipColumn(tables.Column):",
+  "def prepare_cloned_fields(instance):",
+  "def serve_docs(context):"
+]

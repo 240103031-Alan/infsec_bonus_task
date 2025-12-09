@@ -1,0 +1,8 @@
+[
+  "def verify_type(self):",
+  "class ResourceUpload(object):",
+  "def test_confirm_dialog_if_no_force(",
+  "def test_correct_users_are_deleted(",
+  "def test_upload_picture(self, create_with_upload, faker):",
+  "class TestVocabularyCreate(object):"
+]

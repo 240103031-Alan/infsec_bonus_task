@@ -1,0 +1,78 @@
+{
+  "changed_files": [
+    "changes/1858.added",
+    "changes/1858.security",
+    "nautobot/core/settings.py",
+    "nautobot/core/templates/admin/base.html",
+    "nautobot/core/templates/base.html",
+    "nautobot/core/templates/graphene/graphiql.html",
+    "nautobot/core/templates/inc/javascript.html",
+    "nautobot/core/templates/inc/media.html",
+    "nautobot/core/templates/login.html",
+    "nautobot/core/templates/nautobot_config.py.j2",
+    "nautobot/core/tests/test_views.py",
+    "nautobot/docs/configuration/optional-settings.md"
+  ],
+  "files_saved": [
+    {
+      "file": "changes/1858.added",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "changes/1858.security",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/settings.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/admin/base.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/base.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/graphene/graphiql.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/inc/javascript.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/inc/media.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/login.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/nautobot_config.py.j2",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/tests/test_views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/docs/configuration/optional-settings.md",
+      "old": true,
+      "new": true
+    }
+  ]
+}

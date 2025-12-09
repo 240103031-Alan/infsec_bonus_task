@@ -1,0 +1,18 @@
+{
+  "changed_files": [
+    "CHANGELOG.txt",
+    "docs/releases/4.1.4.md"
+  ],
+  "files_saved": [
+    {
+      "file": "CHANGELOG.txt",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "docs/releases/4.1.4.md",
+      "old": true,
+      "new": true
+    }
+  ]
+}

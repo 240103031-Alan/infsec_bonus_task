@@ -1,0 +1,30 @@
+{
+  "changed_files": [
+    "docs/reference/settings.rst",
+    "wagtail/contrib/forms/forms.py",
+    "wagtail/contrib/forms/tests/test_models.py",
+    "wagtail/contrib/forms/tests/utils.py"
+  ],
+  "files_saved": [
+    {
+      "file": "docs/reference/settings.rst",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "wagtail/contrib/forms/forms.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "wagtail/contrib/forms/tests/test_models.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "wagtail/contrib/forms/tests/utils.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+commit eefc3381d37b476791610e5d30594fae443f33af
+Author: Matt Westcott <matt@west.co.tt>
+Date:   Mon Apr 3 11:19:56 2023 +0200
+
+    Release note for CVE-2023-28836 in 4.1.4
+
+diff --git a/CHANGELOG.txt b/CHANGELOG.txt
+index 89782a1d3d..7a198c533c 100644
+--- a/CHANGELOG.txt
++++ b/CHANGELOG.txt
+@@ -293,6 +293,7 @@ Changelog
+ 4.1.4 (xx.xx.xxxx) - IN DEVELOPMENT
+ ~~~~~~~~~~~~~~~~~~
+ 
++ * Fix: CVE-2023-28836 - Stored XSS attack via ModelAdmin views (Thibaud Colas)
+  * Fix: Fix radio and checkbox elements shrinking when using a long label (Sage Abdullah)
+  * Fix: Fix select elements expanding beyond their container when using a long option label (Sage Abdullah)
+  * Fix: Fix timezone handling of `TemplateResponse`s for users with a custom timezone (Stefan Hammer, Sage Abdullah)
+diff --git a/docs/releases/4.1.4.md b/docs/releases/4.1.4.md
+index 5204dc3a54..159394d84f 100644
+--- a/docs/releases/4.1.4.md
++++ b/docs/releases/4.1.4.md
+@@ -11,6 +11,12 @@ depth: 1
+ 
+ ## What's new
+ 
++### CVE-2023-28836: Stored XSS attack via ModelAdmin views
++
++This release addresses a stored cross-site scripting (XSS) vulnerability on ModelAdmin views within the Wagtail admin interface. A user with a limited-permission editor account for the Wagtail admin could potentially craft pages and documents that, when viewed by a user with higher privileges, could perform actions with that user's credentials. The vulnerability is not exploitable by an ordinary site visitor without access to the Wagtail admin, and only affects sites with ModelAdmin enabled.
++
++Many thanks to Thibaud Colas for reporting this issue. For further details, please see [the CVE-2023-28836 security advisory](https://github.com/wagtail/wagtail/security/advisories/GHSA-5286-f2rf-35c2).
++
+ ### Bug fixes
+ 
+ * Fix radio and checkbox elements shrinking when using a long label (Sage Abdullah)

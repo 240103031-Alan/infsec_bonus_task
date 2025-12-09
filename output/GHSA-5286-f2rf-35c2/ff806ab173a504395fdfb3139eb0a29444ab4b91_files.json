@@ -1,0 +1,4 @@
+[
+  "wagtail/contrib/modeladmin/tests/test_simple_modeladmin.py",
+  "wagtail/contrib/modeladmin/views.py"
+]

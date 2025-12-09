@@ -1,0 +1,24 @@
+{
+  "changed_files": [
+    "changes/5647.security",
+    "nautobot/core/templates/generic/object_list.html",
+    "nautobot/core/tests/test_views.py"
+  ],
+  "files_saved": [
+    {
+      "file": "changes/5647.security",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templates/generic/object_list.html",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/tests/test_views.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

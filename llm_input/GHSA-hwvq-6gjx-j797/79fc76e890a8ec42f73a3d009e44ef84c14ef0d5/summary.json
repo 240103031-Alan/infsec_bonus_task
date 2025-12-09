@@ -1,0 +1,42 @@
+{
+  "changed_files": [
+    "bower.json",
+    "notebook/static/base/js/namespace.js",
+    "notebook/static/base/js/security.js",
+    "package.json",
+    "setupbase.py",
+    "webpack.config.js"
+  ],
+  "files_saved": [
+    {
+      "file": "bower.json",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "notebook/static/base/js/namespace.js",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "notebook/static/base/js/security.js",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "package.json",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "setupbase.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "webpack.config.js",
+      "old": false,
+      "new": true
+    }
+  ]
+}

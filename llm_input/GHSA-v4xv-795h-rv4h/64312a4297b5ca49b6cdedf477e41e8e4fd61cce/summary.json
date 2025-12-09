@@ -1,0 +1,114 @@
+{
+  "changed_files": [
+    "changes/5134.added",
+    "changes/5134.dependencies",
+    "changes/5134.security",
+    "nautobot/core/settings.py",
+    "nautobot/core/tests/test_views.py",
+    "nautobot/docs/additional-features/jobs.md",
+    "nautobot/docs/additional-features/template-filters.md",
+    "nautobot/docs/configuration/optional-settings.md",
+    "nautobot/docs/models/extras/note.md",
+    "nautobot/extras/forms/forms.py",
+    "nautobot/extras/models/jobs.py",
+    "nautobot/utilities/constants.py",
+    "nautobot/utilities/forms/fields.py",
+    "nautobot/utilities/logging.py",
+    "nautobot/utilities/templatetags/helpers.py",
+    "nautobot/utilities/tests/test_templatetags_helpers.py",
+    "poetry.lock",
+    "pyproject.toml"
+  ],
+  "files_saved": [
+    {
+      "file": "changes/5134.added",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "changes/5134.dependencies",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "changes/5134.security",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/settings.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/tests/test_views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/docs/additional-features/jobs.md",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/docs/additional-features/template-filters.md",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/docs/configuration/optional-settings.md",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/docs/models/extras/note.md",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/forms/forms.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/models/jobs.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/utilities/constants.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/utilities/forms/fields.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/utilities/logging.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/utilities/templatetags/helpers.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/utilities/tests/test_templatetags_helpers.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "poetry.lock",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "pyproject.toml",
+      "old": true,
+      "new": true
+    }
+  ]
+}

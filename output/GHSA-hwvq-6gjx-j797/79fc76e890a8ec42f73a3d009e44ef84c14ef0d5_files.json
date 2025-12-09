@@ -1,0 +1,8 @@
+[
+  "bower.json",
+  "notebook/static/base/js/namespace.js",
+  "notebook/static/base/js/security.js",
+  "package.json",
+  "setupbase.py",
+  "webpack.config.js"
+]

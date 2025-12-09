@@ -1,0 +1,24 @@
+{
+  "changed_files": [
+    "packages/apputils-extension/schema/sanitizer.json",
+    "packages/apputils-extension/src/index.ts",
+    "packages/apputils/src/sanitizer.ts"
+  ],
+  "files_saved": [
+    {
+      "file": "packages/apputils-extension/schema/sanitizer.json",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "packages/apputils-extension/src/index.ts",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "packages/apputils/src/sanitizer.ts",
+      "old": true,
+      "new": true
+    }
+  ]
+}

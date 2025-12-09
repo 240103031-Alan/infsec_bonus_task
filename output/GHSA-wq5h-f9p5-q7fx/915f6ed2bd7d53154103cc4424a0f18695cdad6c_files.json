@@ -1,0 +1,4 @@
+[
+  "wagtail/admin/rich_text/converters/contentstate.py",
+  "wagtail/admin/tests/test_contentstate.py"
+]

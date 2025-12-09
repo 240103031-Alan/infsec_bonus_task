@@ -1,0 +1,27 @@
+# Wagtail 4.1.4 release notes
+
+_Unreleased_
+
+```{contents}
+---
+local:
+depth: 1
+---
+```
+
+## What's new
+
+### Bug fixes
+
+* Fix radio and checkbox elements shrinking when using a long label (Sage Abdullah)
+* Fix select elements expanding beyond their container when using a long option label (Sage Abdullah)
+* Fix timezone handling of `TemplateResponse`s for users with a custom timezone (Stefan Hammer, Sage Abdullah)
+* Ensure TableBlock initialisation correctly runs after load and its width is aligned with the parent panel (Dan Braghis)
+* Ensure that the JavaScript media files are loaded by default in Snippet index listings for date fields (Sage Abdullah)
+* Fix server-side caching of the icons sprite (Thibaud Colas)
+* Always show Add buttons, guide lines, Move up/down, Duplicate, Delete; in StreamField and Inline Panel (Thibaud Colas)
+* Ensure datetimepicker widget overlay shows over modals & drop-downs (LB (Ben) Johnston)
+
+### Maintenance
+
+* Render large image renditions to disk (Jake Howard)

@@ -1,0 +1,4 @@
+[
+  "class ParentChooserForm(forms.Form):",
+  "class TestChooseParentViewForNonSuperuser(TestCase, WagtailTestUtils):"
+]

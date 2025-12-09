@@ -1,0 +1,192 @@
+{
+  "changed_files": [
+    ".github/workflows/ci_pullrequest.yml",
+    "changes/4832.changed",
+    "changes/4832.housekeeping",
+    "changes/4832.security",
+    "nautobot/core/settings.py",
+    "nautobot/core/tables.py",
+    "nautobot/core/templatetags/helpers.py",
+    "nautobot/core/utils/data.py",
+    "nautobot/core/views/generic.py",
+    "nautobot/core/views/mixins.py",
+    "nautobot/core/views/utils.py",
+    "nautobot/dcim/models/devices.py",
+    "nautobot/dcim/views.py",
+    "nautobot/extras/models/customfields.py",
+    "nautobot/extras/models/models.py",
+    "nautobot/extras/models/relationships.py",
+    "nautobot/extras/tables.py",
+    "nautobot/extras/templatetags/computed_fields.py",
+    "nautobot/extras/templatetags/custom_links.py",
+    "nautobot/extras/templatetags/job_buttons.py",
+    "nautobot/extras/templatetags/plugins.py",
+    "nautobot/extras/tests/test_customfields.py",
+    "nautobot/extras/tests/test_relationships.py",
+    "nautobot/extras/tests/test_views.py",
+    "nautobot/extras/views.py",
+    "nautobot/ipam/tables.py",
+    "nautobot/ipam/views.py",
+    "poetry.lock",
+    "pyproject.toml",
+    "scripts/git-hooks/pre-commit",
+    "tasks.py"
+  ],
+  "files_saved": [
+    {
+      "file": ".github/workflows/ci_pullrequest.yml",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "changes/4832.changed",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "changes/4832.housekeeping",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "changes/4832.security",
+      "old": false,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/settings.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/tables.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/templatetags/helpers.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/utils/data.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/views/generic.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/views/mixins.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/core/views/utils.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/dcim/models/devices.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/dcim/views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/models/customfields.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/models/models.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/models/relationships.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/tables.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/templatetags/computed_fields.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/templatetags/custom_links.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/templatetags/job_buttons.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/templatetags/plugins.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/tests/test_customfields.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/tests/test_relationships.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/tests/test_views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/extras/views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/ipam/tables.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "nautobot/ipam/views.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "poetry.lock",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "pyproject.toml",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "scripts/git-hooks/pre-commit",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "tasks.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

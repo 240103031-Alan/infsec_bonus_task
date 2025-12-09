@@ -1,0 +1,5 @@
+[
+  "packages/apputils-extension/schema/sanitizer.json",
+  "packages/apputils-extension/src/index.ts",
+  "packages/apputils/src/sanitizer.ts"
+]

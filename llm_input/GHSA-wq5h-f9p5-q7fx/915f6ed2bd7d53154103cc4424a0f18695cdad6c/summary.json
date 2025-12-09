@@ -1,0 +1,18 @@
+{
+  "changed_files": [
+    "wagtail/admin/rich_text/converters/contentstate.py",
+    "wagtail/admin/tests/test_contentstate.py"
+  ],
+  "files_saved": [
+    {
+      "file": "wagtail/admin/rich_text/converters/contentstate.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "wagtail/admin/tests/test_contentstate.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

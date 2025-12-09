@@ -1,0 +1,8 @@
+[
+  "CHANGELOG.rst",
+  "ckan/config/config_declaration.yaml",
+  "ckan/lib/uploader.py",
+  "ckan/tests/cli/test_clean.py",
+  "ckan/tests/lib/test_uploader.py",
+  "ckan/tests/logic/action/test_create.py"
+]

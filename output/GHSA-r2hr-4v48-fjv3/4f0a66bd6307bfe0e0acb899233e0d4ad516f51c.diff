@@ -1,0 +1,311 @@
+commit 4f0a66bd6307bfe0e0acb899233e0d4ad516f51c
+Author: Glenn Matthews <glenn.matthews@networktocode.com>
+Date:   Fri May 10 12:37:17 2024 -0400
+
+    [LTM] Add 'javascript' and 'css' to BRANDING_FILEPATHS options. Sanitize BANNER_ content (#5698)
+    
+    * Add 'javascript' and 'css' to BRANDING_FILEPATHS options. Address GHSA-r2hr-4v48-fjv3
+    
+    * Ruff
+    
+    * Apply to admin/base.html and graphiql.html too as they don't use the includes in 1.x.
+
+diff --git a/changes/1858.added b/changes/1858.added
+new file mode 100644
+index 000000000..179792635
+--- /dev/null
++++ b/changes/1858.added
+@@ -0,0 +1,2 @@
++Added support in `BRANDING_FILEPATHS` configuration to specify a custom `css` and/or `javascript` file to be added to Nautobot page content.
++Added Markdown support to the `BANNER_TOP`, `BANNER_BOTTOM`, and `BANNER_LOGIN` configuration settings.
+diff --git a/changes/1858.security b/changes/1858.security
+new file mode 100644
+index 000000000..48042c791
+--- /dev/null
++++ b/changes/1858.security
+@@ -0,0 +1 @@
++Added sanitization of HTML tags in the content of `BANNER_TOP`, `BANNER_BOTTOM`, and `BANNER_LOGIN` configuration to prevent against potential injection of malicious scripts (stored XSS) via these features ([GHSA-r2hr-4v48-fjv3](https://github.com/nautobot/nautobot/security/advisories/GHSA-r2hr-4v48-fjv3)).
+diff --git a/nautobot/core/settings.py b/nautobot/core/settings.py
+index dfe4481f1..2e9172d8a 100644
+--- a/nautobot/core/settings.py
++++ b/nautobot/core/settings.py
+@@ -59,6 +59,14 @@ ALLOWED_URL_SCHEMES = (
+     "xmpp",
+ )
+ 
++# Banners to display to users. Markdown and limited HTML are allowed.
++if "NAUTOBOT_BANNER_BOTTOM" in os.environ and os.environ["NAUTOBOT_BANNER_BOTTOM"] != "":
++    BANNER_BOTTOM = os.environ["NAUTOBOT_BANNER_BOTTOM"]
++if "NAUTOBOT_BANNER_LOGIN" in os.environ and os.environ["NAUTOBOT_BANNER_LOGIN"] != "":
++    BANNER_LOGIN = os.environ["NAUTOBOT_BANNER_LOGIN"]
++if "NAUTOBOT_BANNER_TOP" in os.environ and os.environ["NAUTOBOT_BANNER_TOP"] != "":
++    BANNER_TOP = os.environ["NAUTOBOT_BANNER_TOP"]
++
+ # Base directory wherein all created files (jobs, git repositories, file uploads, static files) will be stored)
+ NAUTOBOT_ROOT = os.getenv("NAUTOBOT_ROOT", os.path.expanduser("~/.nautobot"))
+ 
+@@ -586,15 +594,15 @@ CONSTANCE_CONFIG = {
+     ],
+     "BANNER_BOTTOM": [
+         "",
+-        "Custom HTML to display in a banner at the bottom of all pages.",
++        "Custom Markdown or limited HTML to display in a banner at the bottom of all pages.",
+     ],
+     "BANNER_LOGIN": [
+         "",
+-        "Custom HTML to display in a banner at the top of the login page.",
++        "Custom Markdown or limited HTML to display in a banner at the top of the login page.",
+     ],
+     "BANNER_TOP": [
+         "",
+-        "Custom HTML to display in a banner at the top of all pages.",
++        "Custom Markdown or limited HTML to display in a banner at the top of all pages.",
+     ],
+     "CHANGELOG_RETENTION": [
+         90,
+@@ -869,6 +877,8 @@ BRANDING_FILEPATHS = {
+     "icon_mask": os.getenv(
+         "NAUTOBOT_BRANDING_FILEPATHS_ICON_MASK", None
+     ),  # mono-chrome icon used for the mask-icon header
++    "css": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_CSS", None),  # Custom global CSS
++    "javascript": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_JAVASCRIPT", None),  # Custom global JavaScript
+ }
+ 
+ # Title to use in place of "Nautobot"
+diff --git a/nautobot/core/templates/admin/base.html b/nautobot/core/templates/admin/base.html
+index 617663cb0..093902494 100644
+--- a/nautobot/core/templates/admin/base.html
++++ b/nautobot/core/templates/admin/base.html
+@@ -32,6 +32,9 @@
+     <link rel="stylesheet" id="base-theme"
+           href="{% static 'css/base.css' %}?v{{ settings.VERSION }}"
+           onerror="window.location='{% url 'media_failure' %}?filename=css/base.css'">
++    {% if settings.BRANDING_FILEPATHS.css %}
++    <link rel="stylesheet" id="custom-css" href="{% custom_branding_or_static 'css' None %}">
++    {% endif %}
+     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/nautobot_icon_180x180.png' %}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/nautobot_icon_32x32.png' %}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/nautobot_icon_16x16.png' %}">
+@@ -101,7 +104,7 @@
+ <div class="container-fluid wrapper" {% if is_popup %}style="padding-bottom: 0px;"{% endif %}>
+     {% if "BANNER_TOP"|settings_or_config %}
+         <div class="alert alert-info text-center" role="alert">
+-            {{ "BANNER_TOP"|settings_or_config|safe }}
++            {{ "BANNER_TOP"|settings_or_config|render_markdown }}
+         </div>
+     {% endif %}
+     {% if settings.MAINTENANCE_MODE %}
+@@ -153,7 +156,7 @@
+     <div class="push"></div>
+     {% if "BANNER_BOTTOM"|settings_or_config %}
+         <div class="alert alert-info text-center banner-bottom" role="alert">
+-                {{ "BANNER_BOTTOM"|settings_or_config|safe }}
++                {{ "BANNER_BOTTOM"|settings_or_config|render_markdown }}
+         </div>
+     {% endif %}
+ </div>
+@@ -189,6 +192,9 @@
+ {% endif %}
+ {% include 'modals/modal_theme.html' with name='theme'%}
+ <script src="{% static 'js/theme.js' %}"></script>
++{% if settings.BRANDING_FILEPATHS.javascript %}
++<script src="{% custom_branding_or_static 'javascript' None %}"></script>
++{% endif %}
+ {% block javascript %}{% endblock %}
+ </body>
+ </html>
+diff --git a/nautobot/core/templates/base.html b/nautobot/core/templates/base.html
+index 3018d03e2..699c4b4d2 100644
+--- a/nautobot/core/templates/base.html
++++ b/nautobot/core/templates/base.html
+@@ -15,7 +15,7 @@
+         {% if request.user.is_authenticated or not "HIDE_RESTRICTED_UI"|settings_or_config %}
+             {% if "BANNER_TOP"|settings_or_config %}
+                 <div class="alert alert-info text-center" role="alert">
+-                    {{ "BANNER_TOP"|settings_or_config|safe }}
++                    {{ "BANNER_TOP"|settings_or_config|render_markdown }}
+                 </div>
+             {% endif %}
+         {% endif %}
+@@ -40,7 +40,7 @@
+         {% if request.user.is_authenticated or not "HIDE_RESTRICTED_UI"|settings_or_config %}
+             {% if "BANNER_BOTTOM"|settings_or_config %}
+                 <div class="alert alert-info text-center banner-bottom" role="alert">
+-                    {{ "BANNER_BOTTOM"|settings_or_config|safe }}
++                    {{ "BANNER_BOTTOM"|settings_or_config|render_markdown }}
+                 </div>
+             {% endif %}
+         {% endif %}
+diff --git a/nautobot/core/templates/graphene/graphiql.html b/nautobot/core/templates/graphene/graphiql.html
+index 481938601..08bbab078 100644
+--- a/nautobot/core/templates/graphene/graphiql.html
++++ b/nautobot/core/templates/graphene/graphiql.html
+@@ -36,6 +36,9 @@ add "&raw" to the end of the URL within a browser.
+   <link rel="stylesheet"
+         href="{% static 'css/base.css' %}?v{{ settings.VERSION }}"
+         onerror="window.location='{% url 'media_failure' %}?filename=css/base.css'">
++    {% if settings.BRANDING_FILEPATHS.css %}
++    <link rel="stylesheet" id="custom-css" href="{% custom_branding_or_static 'css' None %}">
++    {% endif %}
+   <link rel="apple-touch-icon" sizes="180x180" href="{% custom_branding_or_static 'icon_180' 'img/nautobot_icon_180x180.png' %}">
+   <link rel="icon" type="image/png" sizes="32x32" href="{% custom_branding_or_static 'icon_32' 'img/nautobot_icon_32x32.png' %}">
+   <link rel="icon" type="image/png" sizes="16x16" href="{% custom_branding_or_static 'icon_16' 'img/nautobot_icon_16x16.png' %}">
+diff --git a/nautobot/core/templates/inc/javascript.html b/nautobot/core/templates/inc/javascript.html
+index 4c562cd6b..1b81708ca 100644
+--- a/nautobot/core/templates/inc/javascript.html
++++ b/nautobot/core/templates/inc/javascript.html
+@@ -52,3 +52,6 @@
+             dropdown.removeClass('edge');
+     })
+ </script>
++{% if settings.BRANDING_FILEPATHS.javascript %}
++<script src="{% custom_branding_or_static 'javascript' None %}"></script>
++{% endif %}
+diff --git a/nautobot/core/templates/inc/media.html b/nautobot/core/templates/inc/media.html
+index 60d88d861..fd94a9dbd 100644
+--- a/nautobot/core/templates/inc/media.html
++++ b/nautobot/core/templates/inc/media.html
+@@ -26,6 +26,9 @@
+     <link rel="stylesheet" id="base-theme"
+           href="{% static 'css/base.css' %}?v{{ settings.VERSION }}"
+           onerror="window.location='{% url 'media_failure' %}?filename=css/base.css'">
++    {% if settings.BRANDING_FILEPATHS.css %}
++    <link rel="stylesheet" id="custom-css" href="{% custom_branding_or_static 'css' None %}">
++    {% endif %}
+     <link rel="apple-touch-icon" sizes="180x180" href="{% custom_branding_or_static 'icon_180' 'img/nautobot_icon_180x180.png' %}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{% custom_branding_or_static 'icon_32' 'img/nautobot_icon_32x32.png' %}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{% custom_branding_or_static 'icon_16' 'img/nautobot_icon_16x16.png' %}">
+diff --git a/nautobot/core/templates/login.html b/nautobot/core/templates/login.html
+index 03b4dbb0c..5be540146 100644
+--- a/nautobot/core/templates/login.html
++++ b/nautobot/core/templates/login.html
+@@ -53,8 +53,8 @@
+ <div class="row" style="margin-top: {% if 'BANNER_LOGIN'|settings_or_config %}100{% else %}150{% endif %}px;">
+     <div class="col-sm-4 col-sm-offset-4">
+         {% if "BANNER_LOGIN"|settings_or_config %}
+-            <div style="margin-bottom: 25px">
+-                {{ "BANNER_LOGIN"|settings_or_config|safe }}
++            <div class="alert alert-info text-center" role="alert">
++                {{ "BANNER_LOGIN"|settings_or_config|render_markdown }}
+             </div>
+         {% endif %}
+         {% if form.non_field_errors %}
+diff --git a/nautobot/core/templates/nautobot_config.py.j2 b/nautobot/core/templates/nautobot_config.py.j2
+index 1dff48635..f4534a7a0 100644
+--- a/nautobot/core/templates/nautobot_config.py.j2
++++ b/nautobot/core/templates/nautobot_config.py.j2
+@@ -263,6 +263,8 @@ SECRET_KEY = os.getenv("NAUTOBOT_SECRET_KEY", "{{ secret_key }}")
+ #     "icon_mask": os.getenv(
+ #         "NAUTOBOT_BRANDING_FILEPATHS_ICON_MASK", None
+ #     ),  # mono-chrome icon used for the mask-icon header
++#     "css": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_CSS", None),  # Custom global CSS
++#     "javascript": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_JAVASCRIPT", None),  # Custom global JavaScript
+ # }
+ 
+ # Prepended to CSV, YAML and export template filenames (i.e. `nautobot_device.yml`)
+diff --git a/nautobot/core/tests/test_views.py b/nautobot/core/tests/test_views.py
+index 798191fad..3e7c06c15 100644
+--- a/nautobot/core/tests/test_views.py
++++ b/nautobot/core/tests/test_views.py
+@@ -99,6 +99,39 @@ class HomeViewTestCase(TestCase):
+         response_content = response.content.decode(response.charset).replace("\n", "")
+         self.assertNotRegex(response_content, footer_hostname_version_pattern)
+ 
++    def test_banners_markdown(self):
++        url = reverse("home")
++        with override_settings(
++            BANNER_TOP="# Hello world",
++            BANNER_BOTTOM="[info](https://nautobot.com)",
++        ):
++            response = self.client.get(url)
++        self.assertInHTML("<h1>Hello world</h1>", response.content.decode(response.charset))
++        self.assertInHTML(
++            '<a href="https://nautobot.com" rel="noopener noreferrer">info</a>',
++            response.content.decode(response.charset),
++        )
++
++        with override_settings(BANNER_LOGIN="_Welcome to Nautobot!_"):
++            self.client.logout()
++            response = self.client.get(reverse("login"))
++        self.assertInHTML("<em>Welcome to Nautobot!</em>", response.content.decode(response.charset))
++
++    def test_banners_no_xss(self):
++        url = reverse("home")
++        with override_settings(
++            BANNER_TOP='<script>alert("Hello from above!");</script>',
++            BANNER_BOTTOM='<script>alert("Hello from below!");</script>',
++        ):
++            response = self.client.get(url)
++        self.assertNotIn("Hello from above", response.content.decode(response.charset))
++        self.assertNotIn("Hello from below", response.content.decode(response.charset))
++
++        with override_settings(BANNER_LOGIN='<script>alert("Welcome to Nautobot!");</script>'):
++            self.client.logout()
++            response = self.client.get(reverse("login"))
++        self.assertNotIn("Welcome to Nautobot!", response.content.decode(response.charset))
++
+ 
+ @override_settings(BRANDING_TITLE="Nautobot")
+ class SearchFieldsTestCase(TestCase):
+diff --git a/nautobot/docs/configuration/optional-settings.md b/nautobot/docs/configuration/optional-settings.md
+index cc3c0fbbf..cdde2ed39 100644
+--- a/nautobot/docs/configuration/optional-settings.md
++++ b/nautobot/docs/configuration/optional-settings.md
+@@ -66,7 +66,14 @@ A list of permitted URL schemes referenced when rendering links within Nautobot.
+ 
+ Default: `""` (Empty string)
+ 
+-Setting these variables will display custom content in a banner at the top and/or bottom of the page, respectively. HTML is allowed. To replicate the content of the top banner in the bottom banner, set:
++Environment Variable: `NAUTOBOT_BANNER_TOP`
++Environment Variable: `NAUTOBOT_BANNER_BOTTOM`
++
++Setting these variables will display custom content in a banner at the top and/or bottom of the page, respectively.
++
++Markdown formatting is supported within these messages, as well as [a limited subset of HTML](../additional-features/template-filters.md#render_markdown).
++
++To replicate the content of the top banner in the bottom banner, set:
+ 
+ ```python
+ BANNER_TOP = 'Your banner text'
+@@ -82,7 +89,11 @@ BANNER_BOTTOM = BANNER_TOP
+ 
+ Default: `""` (Empty string)
+ 
+-This defines custom content to be displayed on the login page above the login form. HTML is allowed.
++Environment Variable: `NAUTOBOT_BANNER_LOGIN`
++
++This defines custom content to be displayed on the login page above the login form.
++
++Markdown formatting is supported within this message, as well as [a limited subset of HTML](../additional-features/template-filters.md#render_markdown).
+ 
+ +++ 1.2.0
+     If you do not set a value for this setting in your `nautobot_config.py`, it can be configured dynamically by an admin user via the Nautobot Admin UI. If you do have a value for this setting in `nautobot_config.py`, it will override any dynamically configured value.
+@@ -102,10 +113,12 @@ Default:
+     "icon_180": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_ICON_180", None),  # 180x180px icon - used for the apple-touch-icon header
+     "icon_192": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_ICON_192", None),  # 192x192px icon
+     "icon_mask": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_ICON_MASK", None),  # mono-chrome icon used for the mask-icon header
++    "css": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_CSS", None),  # custom global CSS file
++    "javascript": os.getenv("NAUTOBOT_BRANDING_FILEPATHS_JAVASCRIPT", None),  # custom global Javascript file
+ }
+ ```
+ 
+-A set of filepaths relative to the [`MEDIA_ROOT`](#media_root) which locate image assets used for custom branding. Each of these assets takes the place of the corresponding stock Nautobot asset. This allows for instance, providing your own navbar logo and favicon.
++A set of filepaths relative to the [`MEDIA_ROOT`](#media_root) which locate assets used for custom branding of your Nautobot instance. With the exception of `css` and `javascript`, which provide the option to add an _additional_ file to Nautobot page content, each of the other assets takes the place of the corresponding stock Nautobot asset. This allows for instance, providing your own navbar logo and favicon.
+ 
+ These environment variables may be used to specify the values:
+ 
+@@ -116,8 +129,13 @@ These environment variables may be used to specify the values:
+ * `NAUTOBOT_BRANDING_FILEPATHS_ICON_180`
+ * `NAUTOBOT_BRANDING_FILEPATHS_ICON_192`
+ * `NAUTOBOT_BRANDING_FILEPATHS_ICON_MASK`
++* `NAUTOBOT_BRANDING_FILEPATHS_CSS`
++* `NAUTOBOT_BRANDING_FILEPATHS_JAVASCRIPT`
++
++If a custom asset is not provided for any of the above options, the stock Nautobot asset is used.
+ 
+-If a custom image asset is not provided for any of the above options, the stock Nautobot asset is used.
+++++ 1.6.22
++    The `css` and `javascript` assets were added as options.
+ 
+ ---
+ 

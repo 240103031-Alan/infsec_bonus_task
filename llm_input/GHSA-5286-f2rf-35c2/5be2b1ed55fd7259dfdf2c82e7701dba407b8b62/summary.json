@@ -1,0 +1,18 @@
+{
+  "changed_files": [
+    "wagtail/contrib/modeladmin/forms.py",
+    "wagtail/contrib/modeladmin/tests/test_page_modeladmin.py"
+  ],
+  "files_saved": [
+    {
+      "file": "wagtail/contrib/modeladmin/forms.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "wagtail/contrib/modeladmin/tests/test_page_modeladmin.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

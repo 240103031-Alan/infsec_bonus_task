@@ -1,0 +1,20 @@
+[
+  "changes/5134.added",
+  "changes/5134.dependencies",
+  "changes/5134.security",
+  "nautobot/core/settings.py",
+  "nautobot/core/tests/test_views.py",
+  "nautobot/docs/additional-features/jobs.md",
+  "nautobot/docs/additional-features/template-filters.md",
+  "nautobot/docs/configuration/optional-settings.md",
+  "nautobot/docs/models/extras/note.md",
+  "nautobot/extras/forms/forms.py",
+  "nautobot/extras/models/jobs.py",
+  "nautobot/utilities/constants.py",
+  "nautobot/utilities/forms/fields.py",
+  "nautobot/utilities/logging.py",
+  "nautobot/utilities/templatetags/helpers.py",
+  "nautobot/utilities/tests/test_templatetags_helpers.py",
+  "poetry.lock",
+  "pyproject.toml"
+]

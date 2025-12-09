@@ -1,0 +1,42 @@
+{
+  "changed_files": [
+    "CHANGELOG.rst",
+    "ckan/config/config_declaration.yaml",
+    "ckan/lib/uploader.py",
+    "ckan/tests/cli/test_clean.py",
+    "ckan/tests/lib/test_uploader.py",
+    "ckan/tests/logic/action/test_create.py"
+  ],
+  "files_saved": [
+    {
+      "file": "CHANGELOG.rst",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "ckan/config/config_declaration.yaml",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "ckan/lib/uploader.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "ckan/tests/cli/test_clean.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "ckan/tests/lib/test_uploader.py",
+      "old": true,
+      "new": true
+    },
+    {
+      "file": "ckan/tests/logic/action/test_create.py",
+      "old": true,
+      "new": true
+    }
+  ]
+}

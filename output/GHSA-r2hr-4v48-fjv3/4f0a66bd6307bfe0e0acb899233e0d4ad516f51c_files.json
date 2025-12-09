@@ -1,0 +1,14 @@
+[
+  "changes/1858.added",
+  "changes/1858.security",
+  "nautobot/core/settings.py",
+  "nautobot/core/templates/admin/base.html",
+  "nautobot/core/templates/base.html",
+  "nautobot/core/templates/graphene/graphiql.html",
+  "nautobot/core/templates/inc/javascript.html",
+  "nautobot/core/templates/inc/media.html",
+  "nautobot/core/templates/login.html",
+  "nautobot/core/templates/nautobot_config.py.j2",
+  "nautobot/core/tests/test_views.py",
+  "nautobot/docs/configuration/optional-settings.md"
+]

@@ -1,0 +1,88 @@
+commit 5c7a60977cba478f6a35390ba98cffc2bd41c8a4
+Author: Matt Westcott <matt@west.co.tt>
+Date:   Thu Apr 8 14:15:17 2021 +0100
+
+    Disallow links with unrecognised protocols in contentstate
+
+diff --git a/wagtail/admin/rich_text/converters/contentstate.py b/wagtail/admin/rich_text/converters/contentstate.py
+index 50b6f401a8..4853d0d490 100644
+--- a/wagtail/admin/rich_text/converters/contentstate.py
++++ b/wagtail/admin/rich_text/converters/contentstate.py
+@@ -8,6 +8,7 @@ from draftjs_exporter.html import HTML as HTMLExporter
+ 
+ from wagtail.admin.rich_text.converters.html_to_contentstate import HtmlToContentStateHandler
+ from wagtail.core.rich_text import features as feature_registry
++from wagtail.core.whitelist import check_url
+ 
+ 
+ def link_entity(props):
+@@ -21,7 +22,7 @@ def link_entity(props):
+         link_props['linktype'] = 'page'
+         link_props['id'] = id_
+     else:
+-        link_props['href'] = props.get('url')
++        link_props['href'] = check_url(props.get('url'))
+ 
+     return DOM.create_element('a', link_props, props['children'])
+ 
+diff --git a/wagtail/admin/tests/test_contentstate.py b/wagtail/admin/tests/test_contentstate.py
+index e74ff247de..d618c42024 100644
+--- a/wagtail/admin/tests/test_contentstate.py
++++ b/wagtail/admin/tests/test_contentstate.py
+@@ -825,3 +825,56 @@ class TestHtmlToContentState(TestCase):
+             ],
+             'entityMap': {}
+         })
++
++
++class TestContentStateToHtml(TestCase):
++    def test_external_link(self):
++        converter = ContentstateConverter(features=['link'])
++        contentstate_json = json.dumps({
++            'entityMap': {
++                '0': {'mutability': 'MUTABLE', 'type': 'LINK', 'data': {'url': 'http://wagtail.io'}}
++            },
++            'blocks': [
++                {
++                    'inlineStyleRanges': [], 'text': 'an external link', 'depth': 0, 'type': 'unstyled', 'key': '00000',
++                    'entityRanges': [{'offset': 3, 'length': 8, 'key': 0}]
++                },
++            ]
++        })
++
++        result = converter.to_database_format(contentstate_json)
++        self.assertEqual(result, '<p>an <a href="http://wagtail.io">external</a> link</p>')
++
++    def test_local_link(self):
++        converter = ContentstateConverter(features=['link'])
++        contentstate_json = json.dumps({
++            'entityMap': {
++                '0': {'mutability': 'MUTABLE', 'type': 'LINK', 'data': {'url': '/some/local/path/'}}
++            },
++            'blocks': [
++                {
++                    'inlineStyleRanges': [], 'text': 'an external link', 'depth': 0, 'type': 'unstyled', 'key': '00000',
++                    'entityRanges': [{'offset': 3, 'length': 8, 'key': 0}]
++                },
++            ]
++        })
++
++        result = converter.to_database_format(contentstate_json)
++        self.assertEqual(result, '<p>an <a href="/some/local/path/">external</a> link</p>')
++
++    def test_reject_javascript_link(self):
++        converter = ContentstateConverter(features=['link'])
++        contentstate_json = json.dumps({
++            'entityMap': {
++                '0': {'mutability': 'MUTABLE', 'type': 'LINK', 'data': {'url': "javascript:alert('oh no')"}}
++            },
++            'blocks': [
++                {
++                    'inlineStyleRanges': [], 'text': 'an external link', 'depth': 0, 'type': 'unstyled', 'key': '00000',
++                    'entityRanges': [{'offset': 3, 'length': 8, 'key': 0}]
++                },
++            ]
++        })
++
++        result = converter.to_database_format(contentstate_json)
++        self.assertEqual(result, '<p>an <a>external</a> link</p>')

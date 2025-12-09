@@ -1,0 +1,1193 @@
+[{
+  "_id": "GHSA-7pq5-qcp6-mcww",
+  "ghsa_id": "GHSA-7pq5-qcp6-mcww",
+  "credits": [
+    {
+      "user": {
+        "login": "m4dn355",
+        "id": 85774775,
+        "node_id": "MDQ6VXNlcjg1Nzc0Nzc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/85774775?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/m4dn355",
+        "html_url": "https://github.com/m4dn355",
+        "followers_url": "https://api.github.com/users/m4dn355/followers",
+        "following_url": "https://api.github.com/users/m4dn355/following{/other_user}",
+        "gists_url": "https://api.github.com/users/m4dn355/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/m4dn355/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/m4dn355/subscriptions",
+        "organizations_url": "https://api.github.com/users/m4dn355/orgs",
+        "repos_url": "https://api.github.com/users/m4dn355/repos",
+        "events_url": "https://api.github.com/users/m4dn355/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/m4dn355/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "reporter"
+    }
+  ],
+  "cve_id": "CVE-2025-24372",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N",
+    "score": 7.3
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:N",
+      "score": 7.3
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\nUsing a specially crafted file, a user could potentially upload a file containing code that when executed could send arbitrary requests to the server. If that file was opened by an administrator, it could lead to escalation of privileges of the original submitter or other malicious actions. Users must have been registered to the site to exploit this vulnerability.\n\n### Patches\nThis vulnerability has been fixed in CKAN 2.10.7 and 2.11.2\n\n### Workarounds\nOn versions prior to CKAN 2.10.7 and 2.11.2, site maintainers can restrict the file types supported for uploading using the [ckan.upload.user.mimetypes](https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-mimetypes) / [ckan.upload.user.types](https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-types) and [ckan.upload.group.mimetypes](https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-mimetypes) / [ckan.upload.group.types](https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-types) config options.\nTo entirely disable file uploads you can use:\n\n```ini\nckan.upload.user.types = none\n```",
+  "epss": {
+    "percentage": 0.00083,
+    "percentile": 0.25182
+  },
+  "github_reviewed_at": "2025-02-05T17:41:33Z",
+  "html_url": "https://github.com/advisories/GHSA-7pq5-qcp6-mcww",
+  "identifiers": [
+    {
+      "value": "GHSA-7pq5-qcp6-mcww",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2025-24372",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2025-02-05T19:15:46Z",
+  "published_at": "2025-02-05T17:41:33Z",
+  "references": [
+    "https://github.com/ckan/ckan/security/advisories/GHSA-7pq5-qcp6-mcww",
+    "https://github.com/ckan/ckan/commit/7da6a26c6183e0a97a356d1b1d2407f3ecc7b9c8",
+    "https://github.com/ckan/ckan/commit/a4fc5e06634ed51d653ab819a7efc8e62f816f68",
+    "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-mimetypes",
+    "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-types",
+    "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-mimetypes",
+    "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-types",
+    "https://nvd.nist.gov/vuln/detail/CVE-2025-24372",
+    "https://github.com/advisories/GHSA-7pq5-qcp6-mcww"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/ckan/ckan/security-advisories/GHSA-7pq5-qcp6-mcww",
+  "severity": "high",
+  "source_code_location": "https://github.com/ckan/ckan",
+  "summary": "CKAN has an XSS vector in user uploaded images in group/org and user profiles",
+  "type": "reviewed",
+  "updated_at": "2025-02-05T21:45:15Z",
+  "url": "https://api.github.com/advisories/GHSA-7pq5-qcp6-mcww",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "ckan"
+      },
+      "vulnerable_version_range": "< 2.10.7",
+      "first_patched_version": "2.10.7",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "ckan"
+      },
+      "vulnerable_version_range": ">= 2.11.0, < 2.11.2",
+      "first_patched_version": "2.11.2",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-9q39-rmj3-p4r2",
+  "ghsa_id": "GHSA-9q39-rmj3-p4r2",
+  "credits": [
+    {
+      "user": {
+        "login": "jackfromeast",
+        "id": 51242003,
+        "node_id": "MDQ6VXNlcjUxMjQyMDAz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/51242003?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jackfromeast",
+        "html_url": "https://github.com/jackfromeast",
+        "followers_url": "https://api.github.com/users/jackfromeast/followers",
+        "following_url": "https://api.github.com/users/jackfromeast/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jackfromeast/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jackfromeast/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jackfromeast/subscriptions",
+        "organizations_url": "https://api.github.com/users/jackfromeast/orgs",
+        "repos_url": "https://api.github.com/users/jackfromeast/repos",
+        "events_url": "https://api.github.com/users/jackfromeast/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jackfromeast/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "ishmeals",
+        "id": 44672716,
+        "node_id": "MDQ6VXNlcjQ0NjcyNzE2",
+        "avatar_url": "https://avatars.githubusercontent.com/u/44672716?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ishmeals",
+        "html_url": "https://github.com/ishmeals",
+        "followers_url": "https://api.github.com/users/ishmeals/followers",
+        "following_url": "https://api.github.com/users/ishmeals/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ishmeals/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ishmeals/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ishmeals/subscriptions",
+        "organizations_url": "https://api.github.com/users/ishmeals/orgs",
+        "repos_url": "https://api.github.com/users/ishmeals/repos",
+        "events_url": "https://api.github.com/users/ishmeals/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ishmeals/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "RRosio",
+        "id": 12378147,
+        "node_id": "MDQ6VXNlcjEyMzc4MTQ3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/12378147?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/RRosio",
+        "html_url": "https://github.com/RRosio",
+        "followers_url": "https://api.github.com/users/RRosio/followers",
+        "following_url": "https://api.github.com/users/RRosio/following{/other_user}",
+        "gists_url": "https://api.github.com/users/RRosio/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/RRosio/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/RRosio/subscriptions",
+        "organizations_url": "https://api.github.com/users/RRosio/orgs",
+        "repos_url": "https://api.github.com/users/RRosio/repos",
+        "events_url": "https://api.github.com/users/RRosio/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/RRosio/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_reviewer"
+    },
+    {
+      "user": {
+        "login": "krassowski",
+        "id": 5832902,
+        "node_id": "MDQ6VXNlcjU4MzI5MDI=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/5832902?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/krassowski",
+        "html_url": "https://github.com/krassowski",
+        "followers_url": "https://api.github.com/users/krassowski/followers",
+        "following_url": "https://api.github.com/users/krassowski/following{/other_user}",
+        "gists_url": "https://api.github.com/users/krassowski/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/krassowski/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/krassowski/subscriptions",
+        "organizations_url": "https://api.github.com/users/krassowski/orgs",
+        "repos_url": "https://api.github.com/users/krassowski/repos",
+        "events_url": "https://api.github.com/users/krassowski/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/krassowski/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "remediation_developer"
+    }
+  ],
+  "cve_id": "CVE-2024-43805",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:L",
+    "score": 7.6
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:L/A:L",
+      "score": 7.6
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:L/VA:L/SC:N/SI:N/SA:N",
+      "score": 8.8
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nThe vulnerability depends on user interaction by opening a malicious notebook with Markdown cells, or Markdown file using JupyterLab preview feature.\n\nA malicious user can access any data that the attacked user has access to as well as perform arbitrary requests acting as the attacked user.\n\n### Patches\n\nJupyterLab v3.6.8, v4.2.5 and Jupyter Notebook v7.2.2 were patched.\n\n### Workarounds\n\nThere is no workaround for the underlying DOM Clobbering susceptibility. However, select plugins can be disabled on deployments which cannot update in a timely fashion to minimise the risk. These are:\n- `@jupyterlab/mathjax-extension:plugin` - users will loose ability to preview mathematical equations \n- `@jupyterlab/markdownviewer-extension:plugin` - users will loose ability to open Markdown previews\n- `@jupyterlab/mathjax2-extension:plugin` (if installed with optional `jupyterlab-mathjax2` package) - an older version of the mathjax plugin for JupyterLab 4.x\n\nTo disable these extensions run:\n\n```bash\njupyter labextension disable @jupyterlab/markdownviewer-extension:plugin\njupyter labextension disable @jupyterlab/mathjax-extension:plugin\njupyter labextension disable @jupyterlab/mathjax2-extension:plugin\n```\n\nTo confirm that the plugins were disabled run:\n\n```bash\njupyter labextension list\n```\n\n### References\n\nNone\n\n### Notes\n\nThis change has a potential to break rendering of some markdown. There is a setting in Sanitizer which allows to revert to the previous sanitizer settings (`allowNamedProperties`).",
+  "epss": {
+    "percentage": 0.002,
+    "percentile": 0.42327
+  },
+  "github_reviewed_at": "2024-08-29T17:55:53Z",
+  "html_url": "https://github.com/advisories/GHSA-9q39-rmj3-p4r2",
+  "identifiers": [
+    {
+      "value": "GHSA-9q39-rmj3-p4r2",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2024-43805",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2024-08-28T20:15:07Z",
+  "published_at": "2024-08-29T17:55:53Z",
+  "references": [
+    "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-9q39-rmj3-p4r2",
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-43805",
+    "https://github.com/jupyterlab/jupyterlab/commit/06ad9de836f155add7d3d651ef936cc4c5ea8093",
+    "https://github.com/jupyterlab/jupyterlab/commit/88e24baac551196f9cb3de16bd060a7ab1597674",
+    "https://github.com/advisories/GHSA-9q39-rmj3-p4r2"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/jupyterlab/jupyterlab/security-advisories/GHSA-9q39-rmj3-p4r2",
+  "severity": "high",
+  "source_code_location": "https://github.com/jupyterlab/jupyterlab",
+  "summary": "HTML injection in Jupyter Notebook and JupyterLab leading to DOM Clobbering",
+  "type": "reviewed",
+  "updated_at": "2024-08-29T17:55:54Z",
+  "url": "https://api.github.com/advisories/GHSA-9q39-rmj3-p4r2",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "jupyterlab"
+      },
+      "vulnerable_version_range": "<= 3.6.7",
+      "first_patched_version": "3.6.8",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "notebook"
+      },
+      "vulnerable_version_range": ">= 7.0.0, <= 7.2.1",
+      "first_patched_version": "7.2.2",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "jupyterlab"
+      },
+      "vulnerable_version_range": ">= 4.0.0, <= 4.2.4",
+      "first_patched_version": "4.2.5",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-r2hr-4v48-fjv3",
+  "ghsa_id": "GHSA-r2hr-4v48-fjv3",
+  "credits": [
+    {
+      "user": {
+        "login": "michaelpanorios",
+        "id": 62436420,
+        "node_id": "MDQ6VXNlcjYyNDM2NDIw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/62436420?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/michaelpanorios",
+        "html_url": "https://github.com/michaelpanorios",
+        "followers_url": "https://api.github.com/users/michaelpanorios/followers",
+        "following_url": "https://api.github.com/users/michaelpanorios/following{/other_user}",
+        "gists_url": "https://api.github.com/users/michaelpanorios/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/michaelpanorios/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/michaelpanorios/subscriptions",
+        "organizations_url": "https://api.github.com/users/michaelpanorios/orgs",
+        "repos_url": "https://api.github.com/users/michaelpanorios/repos",
+        "events_url": "https://api.github.com/users/michaelpanorios/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/michaelpanorios/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "reporter"
+    }
+  ],
+  "cve_id": "CVE-2024-34707",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:H/A:L",
+    "score": 7.5
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:H/A:L",
+      "score": 7.5
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nA Nautobot user with admin privileges can modify the `BANNER_TOP`, `BANNER_BOTTOM`, and `BANNER_LOGIN` configuration settings via the `/admin/constance/config/` endpoint. Normally these settings are used to provide custom banner text at the top and bottom of all Nautobot web pages (or specifically on the login page in the case of `BANNER_LOGIN`) but it was reported that an admin user can make use of these settings to inject arbitrary HTML, potentially exposing Nautobot users to security issues such as cross-site scripting (stored XSS).\n\n### Patches\n_Has the problem been patched? What versions should users upgrade to?_\n\nPatches will be released as part of Nautobot 1.6.22 and 2.2.4.\n\n### Workarounds\n_Is there a way for users to fix or remediate the vulnerability without upgrading?_\n\nAs [described in the Nautobot documentation](https://docs.nautobot.com/projects/core/en/stable/user-guide/administration/configuration/optional-settings/#administratively-configurable-settings), these settings are only configurable through the admin UI of Nautobot if they are *not* explicitly set to some non-empty value in the `nautobot_config.py` or equivalent Nautobot configuration file. Therefore, adding the following configuration to said file completely mitigates this vulnerability in both Nautobot 1.x and 2.x:\n\n```python\nBANNER_LOGIN = \" \"\nBANNER_TOP = \" \"\nBANNER_BOTTOM = \" \"\n```\n\nor alternately (Nautobot 2.x only), if those variables are not defined explicitly in your configuration file, setting the following environment variables for the Nautobot user account serves the same purpose:\n\n```shell\nNAUTOBOT_BANNER_LOGIN=\" \"\nNAUTOBOT_BANNER_TOP=\" \"\nNAUTOBOT_BANNER_BOTTOM=\" \"\n```\n\nLimiting all users who do not need elevated privileges to non-admin access (`is_superuser: False` and `is_staff: False`) is a partial mitigation as well.\n\n\n### References\n\n- https://github.com/nautobot/nautobot/pull/5697\n- https://github.com/nautobot/nautobot/pull/5698",
+  "epss": {
+    "percentage": 0.00266,
+    "percentile": 0.50111
+  },
+  "github_reviewed_at": "2024-05-13T19:59:26Z",
+  "html_url": "https://github.com/advisories/GHSA-r2hr-4v48-fjv3",
+  "identifiers": [
+    {
+      "value": "GHSA-r2hr-4v48-fjv3",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2024-34707",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2024-05-14T15:39:30Z",
+  "published_at": "2024-05-13T19:59:26Z",
+  "references": [
+    "https://github.com/nautobot/nautobot/security/advisories/GHSA-r2hr-4v48-fjv3",
+    "https://github.com/nautobot/nautobot/pull/5697",
+    "https://github.com/nautobot/nautobot/pull/5698",
+    "https://github.com/nautobot/nautobot/commit/4f0a66bd6307bfe0e0acb899233e0d4ad516f51c",
+    "https://github.com/nautobot/nautobot/commit/f640aedc69c848d3d1be57f0300fc40033ff6423",
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-34707",
+    "https://github.com/advisories/GHSA-r2hr-4v48-fjv3"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/nautobot/nautobot/security-advisories/GHSA-r2hr-4v48-fjv3",
+  "severity": "high",
+  "source_code_location": "https://github.com/nautobot/nautobot",
+  "summary": "Nautobot's BANNER_* configuration can be used to inject arbitrary HTML content into Nautobot pages",
+  "type": "reviewed",
+  "updated_at": "2024-05-14T20:04:16Z",
+  "url": "https://api.github.com/advisories/GHSA-r2hr-4v48-fjv3",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": "< 1.6.22",
+      "first_patched_version": "1.6.22",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": ">= 2.0.0, < 2.2.4",
+      "first_patched_version": "2.2.4",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-jxgr-gcj5-cqqg",
+  "ghsa_id": "GHSA-jxgr-gcj5-cqqg",
+  "credits": [
+    {
+      "user": {
+        "login": "michaelpanorios",
+        "id": 62436420,
+        "node_id": "MDQ6VXNlcjYyNDM2NDIw",
+        "avatar_url": "https://avatars.githubusercontent.com/u/62436420?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/michaelpanorios",
+        "html_url": "https://github.com/michaelpanorios",
+        "followers_url": "https://api.github.com/users/michaelpanorios/followers",
+        "following_url": "https://api.github.com/users/michaelpanorios/following{/other_user}",
+        "gists_url": "https://api.github.com/users/michaelpanorios/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/michaelpanorios/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/michaelpanorios/subscriptions",
+        "organizations_url": "https://api.github.com/users/michaelpanorios/orgs",
+        "repos_url": "https://api.github.com/users/michaelpanorios/repos",
+        "events_url": "https://api.github.com/users/michaelpanorios/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/michaelpanorios/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "reporter"
+    }
+  ],
+  "cve_id": "CVE-2024-32979",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:L",
+    "score": 7.5
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:H/A:L",
+      "score": 7.5
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nIt was discovered that due to improper handling and escaping of user-provided query parameters, a maliciously crafted Nautobot URL could potentially be used to execute a Reflected Cross-Site Scripting (Reflected XSS) attack against users. All filterable object-list views in Nautobot are vulnerable, including:\n\n- /dcim/location-types/\n- /dcim/locations/\n- /dcim/racks/\n- /dcim/rack-groups/\n- /dcim/rack-reservations/\n- /dcim/rack-elevations/\n- /tenancy/tenants/\n- /tenancy/tenant-groups/\n- /extras/tags/\n- /extras/statuses/\n- /extras/roles/\n- /extras/dynamic-groups/\n- /dcim/devices/\n- /dcim/platforms/\n- /dcim/virtual-chassis/\n- /dcim/device-redundancy-groups/\n- /dcim/interface-redundancy-groups/\n- /dcim/device-types/\n- /dcim/manufacturers/\n- /dcim/cables/\n- /dcim/console-connections/\n- /dcim/power-connections/\n- /dcim/interface-connections/\n- /dcim/interfaces/\n- /dcim/front-ports/\n- /dcim/rear-ports/\n- /dcim/console-ports/\n- /dcim/console-server-ports/\n- /dcim/power-ports/\n- /dcim/power-outlets/\n- /dcim/device-bays/\n- /dcim/inventory-items/\n- /ipam/ip-addresses/\n- /ipam/prefixes\n- /ipam/rirs/\n- /ipam/namespaces/\n- /ipam/vrfs/\n- /ipam/route-targets/\n- /ipam/vlans/\n- /ipam/vlan-groups/\n- /ipam/services/\n- /virtualization/virtual-machines/\n- /virtualization/interfaces/\n- /virtualization/clusters/\n- /virtualization/cluster-types/\n- /virtualization/cluster-groups/\n- /circuits/circuits/\n- /circuits/circuit-types/\n- /circuits/providers/\n- /circuits/provider-networks/\n- /dcim/power-feeds/\n- /dcim/power-panels/\n- /extras/secrets/\n- /extras/secrets-groups/\n- /extras/jobs/\n- /extras/jobs/scheduled-jobs/approval-queue/\n- /extras/jobs/scheduled-jobs/\n- /extras/job-results/\n- /extras/job-hooks/\n- /extras/job-buttons/\n- /extras/object-changes/\n- /extras/git-repositories/\n- /extras/graphql-queries/\n- /extras/relationships/\n- /extras/notes/\n- /extras/config-contexts/\n- /extras/config-context-schemas/\n- /extras/export-templates/\n- /extras/external-integrations/\n- /extras/webhooks/\n- /extras/computed-fields/\n- /extras/custom-fields/\n- /extras/custom-links/\n\nas well as any similar object-list views provided by any Nautobot App.\n\n### Patches\n\nFixed in Nautobot 1.6.20 and 2.2.3.\n\n### Workarounds\n\nNo workaround has been identified\n\n### References\n\n- #5646 \n- #5647\n\n**Credit to [Michael Panorios](mailto:michael.panorios@pwc.com) for reporting this issue.**",
+  "epss": {
+    "percentage": 0.00201,
+    "percentile": 0.42481
+  },
+  "github_reviewed_at": "2024-05-01T09:36:35Z",
+  "html_url": "https://github.com/advisories/GHSA-jxgr-gcj5-cqqg",
+  "identifiers": [
+    {
+      "value": "GHSA-jxgr-gcj5-cqqg",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2024-32979",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2024-05-01T11:15:47Z",
+  "published_at": "2024-05-01T09:36:35Z",
+  "references": [
+    "https://github.com/nautobot/nautobot/security/advisories/GHSA-jxgr-gcj5-cqqg",
+    "https://github.com/nautobot/nautobot/pull/5646",
+    "https://github.com/nautobot/nautobot/pull/5647",
+    "https://github.com/nautobot/nautobot/commit/2ea5797ea43646d5d8b29433e4c707b5a9758146",
+    "https://github.com/nautobot/nautobot/commit/42440ebd9b381534ad89d62420ebea00d703d64e",
+    "https://github.com/nautobot/nautobot/releases/tag/v1.6.20",
+    "https://github.com/nautobot/nautobot/releases/tag/v2.2.3",
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-32979",
+    "https://github.com/advisories/GHSA-jxgr-gcj5-cqqg"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/nautobot/nautobot/security-advisories/GHSA-jxgr-gcj5-cqqg",
+  "severity": "high",
+  "source_code_location": "https://github.com/nautobot/nautobot",
+  "summary": "nautobot has reflected Cross-site Scripting potential in all object list views",
+  "type": "reviewed",
+  "updated_at": "2024-05-01T13:07:15Z",
+  "url": "https://api.github.com/advisories/GHSA-jxgr-gcj5-cqqg",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": ">= 1.5.0, < 1.6.20",
+      "first_patched_version": "1.6.20",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": ">= 2.0.0, < 2.2.3",
+      "first_patched_version": "2.2.3",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-v4xv-795h-rv4h",
+  "ghsa_id": "GHSA-v4xv-795h-rv4h",
+  "credits": [
+    {
+      "user": {
+        "login": "Kircheneer",
+        "id": 12400533,
+        "node_id": "MDQ6VXNlcjEyNDAwNTMz",
+        "avatar_url": "https://avatars.githubusercontent.com/u/12400533?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Kircheneer",
+        "html_url": "https://github.com/Kircheneer",
+        "followers_url": "https://api.github.com/users/Kircheneer/followers",
+        "following_url": "https://api.github.com/users/Kircheneer/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Kircheneer/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Kircheneer/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Kircheneer/subscriptions",
+        "organizations_url": "https://api.github.com/users/Kircheneer/orgs",
+        "repos_url": "https://api.github.com/users/Kircheneer/repos",
+        "events_url": "https://api.github.com/users/Kircheneer/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Kircheneer/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "reporter"
+    }
+  ],
+  "cve_id": "CVE-2024-23345",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:L/I:H/A:L",
+    "score": 7.1
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:L/I:H/A:L",
+      "score": 7.1
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nAll users of Nautobot versions earlier than 1.6.10 or 2.1.2 are potentially impacted.\n\nDue to inadequate input sanitization, any user-editable fields that support Markdown rendering, including:\n\n- `Circuit.comments`\n- `Cluster.comments`\n- `CustomField.description`\n- `Device.comments`\n- `DeviceRedundancyGroup.comments`\n- `DeviceType.comments`\n- `Job.description`\n- `JobLogEntry.message`\n- `Location.comments`\n- `Note.note`\n- `PowerFeed.comments`\n- `Provider.noc_contact`\n- `Provider.admin_contact`\n- `Provider.comments`\n- `ProviderNetwork.comments`\n- `Rack.comments`\n- `Tenant.comments`\n- `VirtualMachine.comments`\n- Contents of any custom fields of type `markdown`\n- Job class `description` attributes\n- The `SUPPORT_MESSAGE` system configuration setting\n\nare potentially susceptible to cross-site scripting (XSS) attacks via maliciously crafted data.\n\n### Patches\n\nFixed in Nautobot versions 1.6.10 and 2.1.2.\n\n### References\n\nhttps://github.com/nautobot/nautobot/pull/5133\nhttps://github.com/nautobot/nautobot/pull/5134\n",
+  "epss": {
+    "percentage": 0.00412,
+    "percentile": 0.60636
+  },
+  "github_reviewed_at": "2024-01-23T14:44:22Z",
+  "html_url": "https://github.com/advisories/GHSA-v4xv-795h-rv4h",
+  "identifiers": [
+    {
+      "value": "GHSA-v4xv-795h-rv4h",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2024-23345",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2024-01-23T00:15:26Z",
+  "published_at": "2024-01-23T14:44:22Z",
+  "references": [
+    "https://github.com/nautobot/nautobot/security/advisories/GHSA-v4xv-795h-rv4h",
+    "https://nvd.nist.gov/vuln/detail/CVE-2024-23345",
+    "https://github.com/nautobot/nautobot/pull/5133",
+    "https://github.com/nautobot/nautobot/pull/5134",
+    "https://github.com/nautobot/nautobot/commit/17effcbe84a72150c82b138565c311bbee357e80",
+    "https://github.com/nautobot/nautobot/commit/64312a4297b5ca49b6cdedf477e41e8e4fd61cce",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/nautobot/PYSEC-2024-16.yaml",
+    "https://github.com/advisories/GHSA-v4xv-795h-rv4h"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/nautobot/nautobot/security-advisories/GHSA-v4xv-795h-rv4h",
+  "severity": "high",
+  "source_code_location": "https://github.com/nautobot/nautobot",
+  "summary": "XSS potential in rendered Markdown fields (comments, description, notes, etc.)",
+  "type": "reviewed",
+  "updated_at": "2024-02-07T05:08:27Z",
+  "url": "https://api.github.com/advisories/GHSA-v4xv-795h-rv4h",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": ">= 2.0.0, < 2.1.2",
+      "first_patched_version": "2.1.2",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": "< 1.6.10",
+      "first_patched_version": "1.6.10",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-cf9f-wmhp-v4pr",
+  "ghsa_id": "GHSA-cf9f-wmhp-v4pr",
+  "credits": [],
+  "cve_id": "CVE-2023-48705",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:L/I:H/A:L",
+    "score": 7.1
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:L/I:H/A:L",
+      "score": 7.1
+    },
+    "cvss_v4": {
+      "vector_string": null,
+      "score": 0
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nAll users of Nautobot versions earlier than 1.6.6 or 2.0.5 are potentially affected.\n\nDue to incorrect usage of Django's `mark_safe()` API when rendering certain types of user-authored content, including:\n\n- custom links\n- job buttons\n- computed fields\n\nit is possible that users with permission to create or edit these types of content could craft a malicious payload (such as JavaScript code) that would be executed when rendering pages containing this content.\n\n### Patches\n_Has the problem been patched? What versions should users upgrade to?_\n\nWe have fixed the incorrect uses of `mark_safe()` (generally by replacing them with appropriate use of `format_html()` instead) to prevent such malicious data from being executed.\n\nUsers on Nautobot 1.6.x LTM should upgrade to v1.6.6 and users on Nautobot 2.0.x should upgrade to v2.0.5.\n\n### Workarounds\n_Is there a way for users to fix or remediate the vulnerability without upgrading?_\n\nAppropriate object permissions can and should be applied to restrict which users are permitted to create or edit the aforementioned types of user-authored content. Other than that, there is no direct fix available.\n\n### References\n_Are there any links users can visit to find out more?_\n\n- https://github.com/nautobot/nautobot/pull/4832\n- https://github.com/nautobot/nautobot/pull/4833\n- https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.html.format_html\n- https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.safestring.mark_safe",
+  "epss": {
+    "percentage": 0.00304,
+    "percentile": 0.53144
+  },
+  "github_reviewed_at": "2023-11-22T20:55:54Z",
+  "html_url": "https://github.com/advisories/GHSA-cf9f-wmhp-v4pr",
+  "identifiers": [
+    {
+      "value": "GHSA-cf9f-wmhp-v4pr",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2023-48705",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2023-11-22T16:15:09Z",
+  "published_at": "2023-11-22T20:55:54Z",
+  "references": [
+    "https://github.com/nautobot/nautobot/security/advisories/GHSA-cf9f-wmhp-v4pr",
+    "https://nvd.nist.gov/vuln/detail/CVE-2023-48705",
+    "https://github.com/nautobot/nautobot/pull/4832",
+    "https://github.com/nautobot/nautobot/pull/4833",
+    "https://github.com/nautobot/nautobot/commit/362850f5a94689a4c75e3188bf6de826c3b012b2",
+    "https://github.com/nautobot/nautobot/commit/54abe23331b6c3d0d82bf1b028c679b1d200920d",
+    "https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.html.format_html",
+    "https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.safestring.mark_safe",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/nautobot/PYSEC-2023-285.yaml",
+    "https://github.com/advisories/GHSA-cf9f-wmhp-v4pr"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/nautobot/nautobot/security-advisories/GHSA-cf9f-wmhp-v4pr",
+  "severity": "high",
+  "source_code_location": "https://github.com/nautobot/nautobot",
+  "summary": "Cross-site Scripting potential in custom links, job buttons, and computed fields",
+  "type": "reviewed",
+  "updated_at": "2024-11-22T18:13:44Z",
+  "url": "https://api.github.com/advisories/GHSA-cf9f-wmhp-v4pr",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": "< 1.6.6",
+      "first_patched_version": "1.6.6",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "nautobot"
+      },
+      "vulnerable_version_range": ">= 2.0.0, < 2.0.5",
+      "first_patched_version": "2.0.5",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-5286-f2rf-35c2",
+  "ghsa_id": "GHSA-5286-f2rf-35c2",
+  "credits": [
+    {
+      "user": {
+        "login": "thibaudcolas",
+        "id": 877585,
+        "node_id": "MDQ6VXNlcjg3NzU4NQ==",
+        "avatar_url": "https://avatars.githubusercontent.com/u/877585?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/thibaudcolas",
+        "html_url": "https://github.com/thibaudcolas",
+        "followers_url": "https://api.github.com/users/thibaudcolas/followers",
+        "following_url": "https://api.github.com/users/thibaudcolas/following{/other_user}",
+        "gists_url": "https://api.github.com/users/thibaudcolas/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/thibaudcolas/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/thibaudcolas/subscriptions",
+        "organizations_url": "https://api.github.com/users/thibaudcolas/orgs",
+        "repos_url": "https://api.github.com/users/thibaudcolas/repos",
+        "events_url": "https://api.github.com/users/thibaudcolas/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/thibaudcolas/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cve_id": "CVE-2023-28836",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H",
+    "score": 6.4
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:H",
+      "score": 6.4
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:L/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N",
+      "score": 7.5
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\n\nA stored cross-site scripting (XSS) vulnerability exists on ModelAdmin views within the Wagtail admin interface. A user with a limited-permission editor account for the Wagtail admin could potentially craft pages and documents that, when viewed by a user with higher privileges, could perform actions with that user's credentials. The vulnerability is not exploitable by an ordinary site visitor without access to the Wagtail admin, and only affects sites with ModelAdmin enabled.\n\n- For page, the vulnerability is in the \"Choose a parent page\" ModelAdmin view ([`ChooseParentView`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/chooseparentview.html#customising-chooseparentview)), available when managing pages via ModelAdmin.\n- For documents, the vulnerability is in the ModelAdmin Inspect view ([`InspectView`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#enabling-customising-inspectview)) when displaying document fields.\n\n### Patches\n\nPatched versions have been released as Wagtail 4.1.4 (for the LTS 4.1 branch) and Wagtail 4.2.2 (for the current 4.2 branch).\n\n### Workarounds\n\nSite owners who are unable to upgrade to the new versions can disable or override the corresponding functionality.\n\n#### `ChooseParentView`\n\nFor [`ChooseParentView`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/chooseparentview.html#modeladmin-choose-parent-view-class):\n\n- Disable ModelAdmin for all page models.\n- Or provide a custom view via [`choose_parent_view_class`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/chooseparentview.html#id4), with the custom view overriding the `get_form` method.\n\nOne of those steps need to be applied for every `ModelAdmin` class hooked into Wagtail where the model is a Wagtail `Page` or sub-class. Here is an example of implementing the custom `ChooseParentView` with patched HTML escaping:\n\n```python\nfrom django import forms\nfrom django.utils.translation import gettext as _\nfrom wagtail.contrib.modeladmin.views import ChooseParentView\nfrom wagtail.contrib.modeladmin.forms import ParentChooserForm\n\n\nclass PatchedPageChoiceField(forms.ModelChoiceField):\n    \"\"\"PageChoiceField with plain-text breadcrumbs to patch stored XSS.\"\"\"\n    def label_from_instance(self, obj):\n        bits = []\n        for ancestor in (\n            obj.get_ancestors(inclusive=True).exclude(depth=1).specific(defer=True)\n        ):\n            bits.append(ancestor.get_admin_display_title())\n        return ' | '.join(bits)\n\n\nclass PatchedParentChooserForm(ParentChooserForm):\n    \"\"\"ParentChooserForm with custom parent_page to patch stored XSS.\"\"\"\n    parent_page = PatchedPageChoiceField(\n        label=_(\"Parent page\"),\n        required=True,\n        empty_label=None,\n        queryset=Page.objects.none(),\n        widget=forms.RadioSelect(),\n    )\n\n\nclass PatchedChooseParentView(ChooseParentView):\n    \"\"\"ChooseParentView with custom get_form patch stored XSS.\"\"\"\n    def get_form(self, request):\n        parents = self.permission_helper.get_valid_parent_pages(request.user)\n        return PatchedParentChooserForm(parents, request.POST or None)\n```\n\n#### `InspectView`\n\nFor [`InspectView`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#enabling-customising-inspectview):\n\n- Remove `inspect_view_enabled=True` or set it to False to disable the view.\n- Or use [`inspect_view_fields`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#modeladmin-inspect-view-fields) or [`inspect_view_fields_exclude`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#modeladmin-inspect-view-fields-exclude) to prevent displaying document fields in the views.\n- Or provide a custom view via [`inspect_view_class`](https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#id12), with the custom view overriding the `get_document_field_display` method.\n\nOne of those steps need to be applied for every `ModelAdmin` class hooked into Wagtail where `inspect_view_enabled=True`. Here is an example of implementing the custom `InspectView` with patched HTML escaping:\n\n```python\nfrom django.template.defaultfilters import filesizeformat\nfrom django.utils.html import format_html\nfrom wagtail.contrib.modeladmin.views import InspectView\n\n\nclass PatchedInspectView(InspectView):\n    \"\"\"InspectView with override to patch stored XSS vulnerability.\"\"\"\n    def get_document_field_display(self, field_name, field):\n        \"\"\"Render a link to a document\"\"\"\n        document = getattr(self.instance, field_name)\n        if document:\n            return format_html(\n                '<a href=\"{}\">{} <span class=\"meta\">({}, {})</span></a>',\n                document.url,\n                document.title,\n                document.file_extension.upper(),\n                filesizeformat(document.file.size),\n            )\n        return self.model_admin.get_empty_value_display(field_name)\n```",
+  "epss": {
+    "percentage": 0.00751,
+    "percentile": 0.72288
+  },
+  "github_reviewed_at": "2023-04-03T17:25:27Z",
+  "html_url": "https://github.com/advisories/GHSA-5286-f2rf-35c2",
+  "identifiers": [
+    {
+      "value": "GHSA-5286-f2rf-35c2",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2023-28836",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2023-04-03T17:15:00Z",
+  "published_at": "2023-04-03T17:25:27Z",
+  "references": [
+    "https://github.com/wagtail/wagtail/security/advisories/GHSA-5286-f2rf-35c2",
+    "https://github.com/wagtail/wagtail/commit/5be2b1ed55fd7259dfdf2c82e7701dba407b8b62",
+    "https://github.com/wagtail/wagtail/commit/bc84bf9815610cfbf8db3b6050c7ddcbaa4b9713",
+    "https://github.com/wagtail/wagtail/commit/eefc3381d37b476791610e5d30594fae443f33af",
+    "https://github.com/wagtail/wagtail/commit/ff806ab173a504395fdfb3139eb0a29444ab4b91",
+    "https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/chooseparentview.html#customising-chooseparentview",
+    "https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#enabling-customising-inspectview",
+    "https://github.com/wagtail/wagtail/releases/tag/v4.1.4",
+    "https://github.com/wagtail/wagtail/releases/tag/v4.2.2",
+    "https://nvd.nist.gov/vuln/detail/CVE-2023-28836",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2023-55.yaml",
+    "https://github.com/advisories/GHSA-5286-f2rf-35c2"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/wagtail/wagtail/security-advisories/GHSA-5286-f2rf-35c2",
+  "severity": "high",
+  "source_code_location": "https://github.com/wagtail/wagtail",
+  "summary": "Wagtail vulnerable to stored Cross-site Scripting attack via ModelAdmin views",
+  "type": "reviewed",
+  "updated_at": "2024-11-19T16:19:25Z",
+  "url": "https://api.github.com/advisories/GHSA-5286-f2rf-35c2",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": ">= 1.5, < 4.1.4",
+      "first_patched_version": "4.1.4",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": ">= 4.2, < 4.2.2",
+      "first_patched_version": "4.2.2",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-hwvq-6gjx-j797",
+  "ghsa_id": "GHSA-hwvq-6gjx-j797",
+  "credits": [
+    {
+      "user": {
+        "login": "0xDeva",
+        "id": 7994379,
+        "node_id": "MDQ6VXNlcjc5OTQzNzk=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/7994379?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/0xDeva",
+        "html_url": "https://github.com/0xDeva",
+        "followers_url": "https://api.github.com/users/0xDeva/followers",
+        "following_url": "https://api.github.com/users/0xDeva/following{/other_user}",
+        "gists_url": "https://api.github.com/users/0xDeva/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/0xDeva/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/0xDeva/subscriptions",
+        "organizations_url": "https://api.github.com/users/0xDeva/orgs",
+        "repos_url": "https://api.github.com/users/0xDeva/repos",
+        "events_url": "https://api.github.com/users/0xDeva/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/0xDeva/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cve_id": "CVE-2021-32798",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N",
+    "score": 10
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N",
+      "score": 10
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:N/SC:H/SI:H/SA:N",
+      "score": 7.8
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-75",
+      "name": "Failure to Sanitize Special Elements into a Different Plane (Special Element Injection)"
+    },
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    },
+    {
+      "cwe_id": "CWE-80",
+      "name": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)"
+    }
+  ],
+  "description": "### Impact\n\nUntrusted notebook can execute code on load. This is a remote code execution, but requires user action to open a notebook.\n\n### Patches\n\n5.7.11, 6.4.1\n\n### References\n\n[OWASP Page on Injection Prevention](https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html#injection-prevention-rules)\n\n### For more information\n\nIf you have any questions or comments about this advisory, or vulnerabilities to report, please email our security list security@ipython.org.\n\nCredit: Guillaume Jeanne from Google\n\n\n### Example:\n\nA notebook with the following content in a cell and it would display an alert when opened for the first time in Notebook (in an untrusted state):\n\n```\n{ \"cell_type\": \"code\", \"execution_count\": 0, \"metadata\": {}, \"outputs\": [ { \"data\": { \"text/html\": [ \"<select><iframe></select><img src=x: onerror=alert('xss')>\\n\"], \"text/plain\": [] }, \"metadata\": {}, \"output_type\": \"display_data\" } ], \"source\": [ \"\" ] }\n````",
+  "epss": {
+    "percentage": 0.00226,
+    "percentile": 0.4547
+  },
+  "github_reviewed_at": "2021-08-23T16:44:43Z",
+  "html_url": "https://github.com/advisories/GHSA-hwvq-6gjx-j797",
+  "identifiers": [
+    {
+      "value": "GHSA-hwvq-6gjx-j797",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2021-32798",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2021-08-09T21:15:00Z",
+  "published_at": "2021-08-23T19:40:38Z",
+  "references": [
+    "https://github.com/jupyter/notebook/security/advisories/GHSA-hwvq-6gjx-j797",
+    "https://nvd.nist.gov/vuln/detail/CVE-2021-32798",
+    "https://github.com/jupyter/notebook/commit/79fc76e890a8ec42f73a3d009e44ef84c14ef0d5",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/notebook/PYSEC-2021-118.yaml",
+    "https://github.com/advisories/GHSA-hwvq-6gjx-j797"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/jupyter/notebook/security-advisories/GHSA-hwvq-6gjx-j797",
+  "severity": "high",
+  "source_code_location": "https://github.com/jupyter/notebook",
+  "summary": "Special Element Injection in notebook",
+  "type": "reviewed",
+  "updated_at": "2024-10-01T21:17:39Z",
+  "url": "https://api.github.com/advisories/GHSA-hwvq-6gjx-j797",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "notebook"
+      },
+      "vulnerable_version_range": "< 5.7.11",
+      "first_patched_version": "5.7.11",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "notebook"
+      },
+      "vulnerable_version_range": ">= 6.0.0, < 6.4.1",
+      "first_patched_version": "6.4.1",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-wq5h-f9p5-q7fx",
+  "ghsa_id": "GHSA-wq5h-f9p5-q7fx",
+  "credits": [
+    {
+      "user": {
+        "login": "kevthehermit",
+        "id": 2545096,
+        "node_id": "MDQ6VXNlcjI1NDUwOTY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2545096?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/kevthehermit",
+        "html_url": "https://github.com/kevthehermit",
+        "followers_url": "https://api.github.com/users/kevthehermit/followers",
+        "following_url": "https://api.github.com/users/kevthehermit/following{/other_user}",
+        "gists_url": "https://api.github.com/users/kevthehermit/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/kevthehermit/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/kevthehermit/subscriptions",
+        "organizations_url": "https://api.github.com/users/kevthehermit/orgs",
+        "repos_url": "https://api.github.com/users/kevthehermit/repos",
+        "events_url": "https://api.github.com/users/kevthehermit/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/kevthehermit/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "gasman",
+        "id": 85097,
+        "node_id": "MDQ6VXNlcjg1MDk3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/85097?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/gasman",
+        "html_url": "https://github.com/gasman",
+        "followers_url": "https://api.github.com/users/gasman/followers",
+        "following_url": "https://api.github.com/users/gasman/following{/other_user}",
+        "gists_url": "https://api.github.com/users/gasman/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/gasman/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/gasman/subscriptions",
+        "organizations_url": "https://api.github.com/users/gasman/orgs",
+        "repos_url": "https://api.github.com/users/gasman/repos",
+        "events_url": "https://api.github.com/users/gasman/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/gasman/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    },
+    {
+      "user": {
+        "login": "tdunlap607",
+        "id": 16122665,
+        "node_id": "MDQ6VXNlcjE2MTIyNjY1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/16122665?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/tdunlap607",
+        "html_url": "https://github.com/tdunlap607",
+        "followers_url": "https://api.github.com/users/tdunlap607/followers",
+        "following_url": "https://api.github.com/users/tdunlap607/following{/other_user}",
+        "gists_url": "https://api.github.com/users/tdunlap607/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/tdunlap607/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/tdunlap607/subscriptions",
+        "organizations_url": "https://api.github.com/users/tdunlap607/orgs",
+        "repos_url": "https://api.github.com/users/tdunlap607/repos",
+        "events_url": "https://api.github.com/users/tdunlap607/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/tdunlap607/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cve_id": "CVE-2021-29434",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:N",
+    "score": 6.1
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:U/C:H/I:H/A:N",
+      "score": 6.1
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:P/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+      "score": 8.4
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\nWhen saving the contents of a rich text field in the admin interface, Wagtail does not apply server-side checks to ensure that link URLs use a valid protocol. A malicious user with access to the admin interface could thus craft a POST request to publish content with `javascript:` URLs containing arbitrary code. The vulnerability is not exploitable by an ordinary site visitor without access to the Wagtail admin.\n\n### Patches\nPatched versions have been released as Wagtail 2.11.7 (for the LTS 2.11 branch) and Wagtail 2.12.4 (for the current 2.12 branch).\n\n### Workarounds\nFor sites that cannot easily upgrade to a current supported version, the vulnerability can be patched by adding the following code to a `wagtail_hooks.py` module in any installed app:\n\n```python\nfrom draftjs_exporter.dom import DOM\nfrom wagtail.admin.rich_text.converters.html_to_contentstate import ExternalLinkElementHandler, PageLinkElementHandler\nfrom wagtail.core import hooks\nfrom wagtail.core.whitelist import check_url\n\n\ndef link_entity(props):\n    id_ = props.get('id')\n    link_props = {}\n\n    if id_ is not None:\n        link_props['linktype'] = 'page'\n        link_props['id'] = id_\n    else:\n        link_props['href'] = check_url(props.get('url'))\n\n    return DOM.create_element('a', link_props, props['children'])\n\n\n@hooks.register('register_rich_text_features', order=1)\ndef register_link(features):\n    features.register_converter_rule('contentstate', 'link', {\n        'from_database_format': {\n            'a[href]': ExternalLinkElementHandler('LINK'),\n            'a[linktype=\"page\"]': PageLinkElementHandler('LINK'),\n        },\n        'to_database_format': {\n            'entity_decorators': {'LINK': link_entity}\n        }\n    })\n```\n\n### Acknowledgements\nMany thanks to Kevin Breen for reporting this issue.\n\n### For more information\nIf you have any questions or comments about this advisory:\n\n* Visit Wagtail's [support channels](https://docs.wagtail.io/en/stable/support.html)\n* Email us at security@wagtail.io (if you wish to send encrypted email, the public key ID is `0x6ba1e1a86e0f8ce8`)",
+  "epss": {
+    "percentage": 0.00274,
+    "percentile": 0.50519
+  },
+  "github_reviewed_at": "2021-04-19T18:46:26Z",
+  "html_url": "https://github.com/advisories/GHSA-wq5h-f9p5-q7fx",
+  "identifiers": [
+    {
+      "value": "GHSA-wq5h-f9p5-q7fx",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2021-29434",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": "2021-04-19T19:15:00Z",
+  "published_at": "2021-04-20T14:02:30Z",
+  "references": [
+    "https://github.com/wagtail/wagtail/security/advisories/GHSA-wq5h-f9p5-q7fx",
+    "https://nvd.nist.gov/vuln/detail/CVE-2021-29434",
+    "https://github.com/wagtail/wagtail/commit/5c7a60977cba478f6a35390ba98cffc2bd41c8a4",
+    "https://github.com/wagtail/wagtail/commit/915f6ed2bd7d53154103cc4424a0f18695cdad6c",
+    "https://github.com/wagtail/wagtail/compare/v2.11.6...v2.11.7",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2021-114.yaml",
+    "https://pypi.org/project/wagtail",
+    "https://github.com/advisories/GHSA-wq5h-f9p5-q7fx"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/wagtail/wagtail/security-advisories/GHSA-wq5h-f9p5-q7fx",
+  "severity": "high",
+  "source_code_location": "https://github.com/wagtail/wagtail",
+  "summary": "Improper validation of URLs ('Cross-site Scripting') in Wagtail rich text fields",
+  "type": "reviewed",
+  "updated_at": "2024-11-19T16:02:33Z",
+  "url": "https://api.github.com/advisories/GHSA-wq5h-f9p5-q7fx",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": ">= 2.12, <= 2.12.3",
+      "first_patched_version": "2.12.4",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": "<= 2.11.6",
+      "first_patched_version": "2.11.7",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+},
+{
+  "_id": "GHSA-2473-9hgq-j7xw",
+  "ghsa_id": "GHSA-2473-9hgq-j7xw",
+  "credits": [
+    {
+      "user": {
+        "login": "acarasimon96",
+        "id": 17580077,
+        "node_id": "MDQ6VXNlcjE3NTgwMDc3",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17580077?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/acarasimon96",
+        "html_url": "https://github.com/acarasimon96",
+        "followers_url": "https://api.github.com/users/acarasimon96/followers",
+        "following_url": "https://api.github.com/users/acarasimon96/following{/other_user}",
+        "gists_url": "https://api.github.com/users/acarasimon96/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/acarasimon96/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/acarasimon96/subscriptions",
+        "organizations_url": "https://api.github.com/users/acarasimon96/orgs",
+        "repos_url": "https://api.github.com/users/acarasimon96/repos",
+        "events_url": "https://api.github.com/users/acarasimon96/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/acarasimon96/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "type": "analyst"
+    }
+  ],
+  "cve_id": "CVE-2020-15118",
+  "cvss": {
+    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N",
+    "score": 5.7
+  },
+  "cvss_severities": {
+    "cvss_v3": {
+      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:H/UI:R/S:U/C:H/I:H/A:N",
+      "score": 5.7
+    },
+    "cvss_v4": {
+      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:P/VC:H/VI:H/VA:N/SC:N/SI:N/SA:N",
+      "score": 7.2
+    }
+  },
+  "cwes": [
+    {
+      "cwe_id": "CWE-79",
+      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+    }
+  ],
+  "description": "### Impact\nWhen a form page type is made available to Wagtail editors through the `wagtail.contrib.forms` app, and the page template is built using Django's standard form rendering helpers such as `form.as_p` ([as directed in the documentation](https://docs.wagtail.io/en/stable/reference/contrib/forms/index.html#usage)), any HTML tags used within a form field's help text will be rendered unescaped in the page. Allowing HTML within help text is [an intentional design decision](https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.Field.help_text) by Django; however, as a matter of policy Wagtail does not allow editors to insert arbitrary HTML by default, as this could potentially be used to carry out cross-site scripting attacks, including privilege escalation. This functionality should therefore not have been made available to editor-level users.\n\nThe vulnerability is not exploitable by an ordinary site visitor without access to the Wagtail admin.\n\n### Patches\nPatched versions have been released as Wagtail 2.7.4 (for the LTS 2.7 branch) and Wagtail 2.9.3 (for the current 2.9 branch). In these versions, help text will be escaped to prevent the inclusion of HTML tags. Site owners who wish to re-enable the use of HTML within help text (and are willing to accept the risk of this being exploited by editors) may set `WAGTAILFORMS_HELP_TEXT_ALLOW_HTML = True` in their configuration settings.\n\n### Workarounds\nSite owners who are unable to upgrade to the new versions can secure their form page templates by [rendering forms field-by-field as per Django's documentation](https://docs.djangoproject.com/en/3.0/topics/forms/#looping-over-the-form-s-fields), but omitting the `|safe` filter when outputting the help text.\n\n### Acknowledgements\nMany thanks to Timothy Bautista for reporting this issue.\n\n### For more information\nIf you have any questions or comments about this advisory:\n* Visit Wagtail's [support channels](https://docs.wagtail.io/en/stable/support.html)\n* Email us at [security@wagtail.io](mailto:security@wagtail.io) (if you wish to send encrypted email, the public key ID is `0x6ba1e1a86e0f8ce8`)",
+  "epss": {
+    "percentage": 0.00595,
+    "percentile": 0.68364
+  },
+  "github_reviewed_at": "2020-07-20T17:47:32Z",
+  "html_url": "https://github.com/advisories/GHSA-2473-9hgq-j7xw",
+  "identifiers": [
+    {
+      "value": "GHSA-2473-9hgq-j7xw",
+      "type": "GHSA"
+    },
+    {
+      "value": "CVE-2020-15118",
+      "type": "CVE"
+    }
+  ],
+  "nvd_published_at": null,
+  "published_at": "2020-07-20T17:50:30Z",
+  "references": [
+    "https://github.com/wagtail/wagtail/security/advisories/GHSA-2473-9hgq-j7xw",
+    "https://github.com/wagtail/wagtail/commit/d9a41e7f24d08c024acc9a3094940199df94db34",
+    "https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.Field.help_text",
+    "https://docs.wagtail.io/en/stable/reference/contrib/forms/index.html#usage",
+    "https://github.com/wagtail/wagtail/blob/master/docs/releases/2.9.3.rst",
+    "https://nvd.nist.gov/vuln/detail/CVE-2020-15118",
+    "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2020-154.yaml",
+    "https://github.com/advisories/GHSA-2473-9hgq-j7xw"
+  ],
+  "repository_advisory_url": "https://api.github.com/repos/wagtail/wagtail/security-advisories/GHSA-2473-9hgq-j7xw",
+  "severity": "high",
+  "source_code_location": "https://github.com/wagtail/wagtail",
+  "summary": "Cross-Site Scripting in Wagtail",
+  "type": "reviewed",
+  "updated_at": "2024-11-19T15:50:11Z",
+  "url": "https://api.github.com/advisories/GHSA-2473-9hgq-j7xw",
+  "vulnerabilities": [
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": "< 2.7.4",
+      "first_patched_version": "2.7.4",
+      "vulnerable_functions": []
+    },
+    {
+      "package": {
+        "ecosystem": "pip",
+        "name": "wagtail"
+      },
+      "vulnerable_version_range": ">= 2.8rc1, < 2.9.3",
+      "first_patched_version": "2.9.3",
+      "vulnerable_functions": []
+    }
+  ],
+  "withdrawn_at": null
+}]

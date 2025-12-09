@@ -1,0 +1,193 @@
+[
+  {
+    "ghsa_id": "GHSA-7pq5-qcp6-mcww",
+    "source_code_location": "https://github.com/ckan/ckan",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "< 2.10.7",
+    "patched_version_old": "2.10.7",
+    "vulnerable_version_new": ">= 2.11.0, < 2.11.2",
+    "patched_version_new": "2.11.2",
+    "references": [
+      "https://github.com/ckan/ckan/security/advisories/GHSA-7pq5-qcp6-mcww",
+      "https://github.com/ckan/ckan/commit/7da6a26c6183e0a97a356d1b1d2407f3ecc7b9c8",
+      "https://github.com/ckan/ckan/commit/a4fc5e06634ed51d653ab819a7efc8e62f816f68",
+      "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-mimetypes",
+      "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-group-types",
+      "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-mimetypes",
+      "https://docs.ckan.org/en/latest/maintaining/configuration.html#ckan-upload-user-types",
+      "https://nvd.nist.gov/vuln/detail/CVE-2025-24372",
+      "https://github.com/advisories/GHSA-7pq5-qcp6-mcww"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-9q39-rmj3-p4r2",
+    "source_code_location": "https://github.com/jupyterlab/jupyterlab",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "<= 3.6.7",
+    "patched_version_old": "3.6.8",
+    "vulnerable_version_new": ">= 7.0.0, <= 7.2.1",
+    "patched_version_new": "7.2.2",
+    "references": [
+      "https://github.com/jupyterlab/jupyterlab/security/advisories/GHSA-9q39-rmj3-p4r2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-43805",
+      "https://github.com/jupyterlab/jupyterlab/commit/06ad9de836f155add7d3d651ef936cc4c5ea8093",
+      "https://github.com/jupyterlab/jupyterlab/commit/88e24baac551196f9cb3de16bd060a7ab1597674",
+      "https://github.com/advisories/GHSA-9q39-rmj3-p4r2"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-r2hr-4v48-fjv3",
+    "source_code_location": "https://github.com/nautobot/nautobot",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "< 1.6.22",
+    "patched_version_old": "1.6.22",
+    "vulnerable_version_new": ">= 2.0.0, < 2.2.4",
+    "patched_version_new": "2.2.4",
+    "references": [
+      "https://github.com/nautobot/nautobot/security/advisories/GHSA-r2hr-4v48-fjv3",
+      "https://github.com/nautobot/nautobot/pull/5697",
+      "https://github.com/nautobot/nautobot/pull/5698",
+      "https://github.com/nautobot/nautobot/commit/4f0a66bd6307bfe0e0acb899233e0d4ad516f51c",
+      "https://github.com/nautobot/nautobot/commit/f640aedc69c848d3d1be57f0300fc40033ff6423",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-34707",
+      "https://github.com/advisories/GHSA-r2hr-4v48-fjv3"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-jxgr-gcj5-cqqg",
+    "source_code_location": "https://github.com/nautobot/nautobot",
+    "ecosystem": "pip",
+    "vulnerable_version_old": ">= 1.5.0, < 1.6.20",
+    "patched_version_old": "1.6.20",
+    "vulnerable_version_new": ">= 2.0.0, < 2.2.3",
+    "patched_version_new": "2.2.3",
+    "references": [
+      "https://github.com/nautobot/nautobot/security/advisories/GHSA-jxgr-gcj5-cqqg",
+      "https://github.com/nautobot/nautobot/pull/5646",
+      "https://github.com/nautobot/nautobot/pull/5647",
+      "https://github.com/nautobot/nautobot/commit/2ea5797ea43646d5d8b29433e4c707b5a9758146",
+      "https://github.com/nautobot/nautobot/commit/42440ebd9b381534ad89d62420ebea00d703d64e",
+      "https://github.com/nautobot/nautobot/releases/tag/v1.6.20",
+      "https://github.com/nautobot/nautobot/releases/tag/v2.2.3",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-32979",
+      "https://github.com/advisories/GHSA-jxgr-gcj5-cqqg"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-v4xv-795h-rv4h",
+    "source_code_location": "https://github.com/nautobot/nautobot",
+    "ecosystem": "pip",
+    "vulnerable_version_old": ">= 2.0.0, < 2.1.2",
+    "patched_version_old": "2.1.2",
+    "vulnerable_version_new": "< 1.6.10",
+    "patched_version_new": "1.6.10",
+    "references": [
+      "https://github.com/nautobot/nautobot/security/advisories/GHSA-v4xv-795h-rv4h",
+      "https://nvd.nist.gov/vuln/detail/CVE-2024-23345",
+      "https://github.com/nautobot/nautobot/pull/5133",
+      "https://github.com/nautobot/nautobot/pull/5134",
+      "https://github.com/nautobot/nautobot/commit/17effcbe84a72150c82b138565c311bbee357e80",
+      "https://github.com/nautobot/nautobot/commit/64312a4297b5ca49b6cdedf477e41e8e4fd61cce",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/nautobot/PYSEC-2024-16.yaml",
+      "https://github.com/advisories/GHSA-v4xv-795h-rv4h"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-cf9f-wmhp-v4pr",
+    "source_code_location": "https://github.com/nautobot/nautobot",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "< 1.6.6",
+    "patched_version_old": "1.6.6",
+    "vulnerable_version_new": ">= 2.0.0, < 2.0.5",
+    "patched_version_new": "2.0.5",
+    "references": [
+      "https://github.com/nautobot/nautobot/security/advisories/GHSA-cf9f-wmhp-v4pr",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-48705",
+      "https://github.com/nautobot/nautobot/pull/4832",
+      "https://github.com/nautobot/nautobot/pull/4833",
+      "https://github.com/nautobot/nautobot/commit/362850f5a94689a4c75e3188bf6de826c3b012b2",
+      "https://github.com/nautobot/nautobot/commit/54abe23331b6c3d0d82bf1b028c679b1d200920d",
+      "https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.html.format_html",
+      "https://docs.djangoproject.com/en/3.2/ref/utils/#django.utils.safestring.mark_safe",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/nautobot/PYSEC-2023-285.yaml",
+      "https://github.com/advisories/GHSA-cf9f-wmhp-v4pr"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-5286-f2rf-35c2",
+    "source_code_location": "https://github.com/wagtail/wagtail",
+    "ecosystem": "pip",
+    "vulnerable_version_old": ">= 1.5, < 4.1.4",
+    "patched_version_old": "4.1.4",
+    "vulnerable_version_new": ">= 4.2, < 4.2.2",
+    "patched_version_new": "4.2.2",
+    "references": [
+      "https://github.com/wagtail/wagtail/security/advisories/GHSA-5286-f2rf-35c2",
+      "https://github.com/wagtail/wagtail/commit/5be2b1ed55fd7259dfdf2c82e7701dba407b8b62",
+      "https://github.com/wagtail/wagtail/commit/bc84bf9815610cfbf8db3b6050c7ddcbaa4b9713",
+      "https://github.com/wagtail/wagtail/commit/eefc3381d37b476791610e5d30594fae443f33af",
+      "https://github.com/wagtail/wagtail/commit/ff806ab173a504395fdfb3139eb0a29444ab4b91",
+      "https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/chooseparentview.html#customising-chooseparentview",
+      "https://docs.wagtail.org/en/stable/reference/contrib/modeladmin/inspectview.html#enabling-customising-inspectview",
+      "https://github.com/wagtail/wagtail/releases/tag/v4.1.4",
+      "https://github.com/wagtail/wagtail/releases/tag/v4.2.2",
+      "https://nvd.nist.gov/vuln/detail/CVE-2023-28836",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2023-55.yaml",
+      "https://github.com/advisories/GHSA-5286-f2rf-35c2"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-hwvq-6gjx-j797",
+    "source_code_location": "https://github.com/jupyter/notebook",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "< 5.7.11",
+    "patched_version_old": "5.7.11",
+    "vulnerable_version_new": ">= 6.0.0, < 6.4.1",
+    "patched_version_new": "6.4.1",
+    "references": [
+      "https://github.com/jupyter/notebook/security/advisories/GHSA-hwvq-6gjx-j797",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-32798",
+      "https://github.com/jupyter/notebook/commit/79fc76e890a8ec42f73a3d009e44ef84c14ef0d5",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/notebook/PYSEC-2021-118.yaml",
+      "https://github.com/advisories/GHSA-hwvq-6gjx-j797"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-wq5h-f9p5-q7fx",
+    "source_code_location": "https://github.com/wagtail/wagtail",
+    "ecosystem": "pip",
+    "vulnerable_version_old": ">= 2.12, <= 2.12.3",
+    "patched_version_old": "2.12.4",
+    "vulnerable_version_new": "<= 2.11.6",
+    "patched_version_new": "2.11.7",
+    "references": [
+      "https://github.com/wagtail/wagtail/security/advisories/GHSA-wq5h-f9p5-q7fx",
+      "https://nvd.nist.gov/vuln/detail/CVE-2021-29434",
+      "https://github.com/wagtail/wagtail/commit/5c7a60977cba478f6a35390ba98cffc2bd41c8a4",
+      "https://github.com/wagtail/wagtail/commit/915f6ed2bd7d53154103cc4424a0f18695cdad6c",
+      "https://github.com/wagtail/wagtail/compare/v2.11.6...v2.11.7",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2021-114.yaml",
+      "https://pypi.org/project/wagtail",
+      "https://github.com/advisories/GHSA-wq5h-f9p5-q7fx"
+    ]
+  },
+  {
+    "ghsa_id": "GHSA-2473-9hgq-j7xw",
+    "source_code_location": "https://github.com/wagtail/wagtail",
+    "ecosystem": "pip",
+    "vulnerable_version_old": "< 2.7.4",
+    "patched_version_old": "2.7.4",
+    "vulnerable_version_new": ">= 2.8rc1, < 2.9.3",
+    "patched_version_new": "2.9.3",
+    "references": [
+      "https://github.com/wagtail/wagtail/security/advisories/GHSA-2473-9hgq-j7xw",
+      "https://github.com/wagtail/wagtail/commit/d9a41e7f24d08c024acc9a3094940199df94db34",
+      "https://docs.djangoproject.com/en/3.0/ref/models/fields/#django.db.models.Field.help_text",
+      "https://docs.wagtail.io/en/stable/reference/contrib/forms/index.html#usage",
+      "https://github.com/wagtail/wagtail/blob/master/docs/releases/2.9.3.rst",
+      "https://nvd.nist.gov/vuln/detail/CVE-2020-15118",
+      "https://github.com/pypa/advisory-database/tree/main/vulns/wagtail/PYSEC-2020-154.yaml",
+      "https://github.com/advisories/GHSA-2473-9hgq-j7xw"
+    ]
+  }
+]
